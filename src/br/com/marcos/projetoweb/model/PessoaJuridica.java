@@ -19,7 +19,7 @@ public class PessoaJuridica extends Cliente {
 		this.nomeFantasia = nomeFantasia;
 	}
 
-	PessoaJuridica(String nome, String endereco, String telefone, String cnpj, String nomeFantasia) {
+	public PessoaJuridica(String nome, String endereco, String telefone, String cnpj, String nomeFantasia) {
 		super(nome, endereco, telefone);
 		this.setCnpj(cnpj);
 		this.setNomeFantasia(nomeFantasia);
