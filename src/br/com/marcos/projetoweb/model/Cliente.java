@@ -4,29 +4,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Cliente {
-	private int id;
+	private int idCliente;
 	private String nome;
 	private String endereco;
 	private String telefone;
 	private List<Produto> produtos;
-	
-	
-	
+		
 	public Cliente() {
 		super();
-		this.id = 0;
+		this.idCliente = 0;
 	}
 
 	public Cliente(int id, String nome, String endereco, String telefone) {
 		super();
-		this.id = id;
+		this.idCliente = id;
 		this.nome = nome;
 		this.endereco = endereco;
 		this.telefone = telefone;
 	}
 
 	public Cliente(int id, String nome, String endereco, String telefone, List<Produto> produtos) {
-		this.id = id;
+		this.idCliente = id;
 		this.nome = nome;
 		this.endereco = endereco;
 		this.telefone = telefone;
@@ -34,7 +32,7 @@ public abstract class Cliente {
 	}
 
 	Cliente(String nome, String endereco, String telefone) {
-		this.id = 0;
+		this.idCliente = 0;
 		this.nome = nome;
 		this.endereco = endereco;
 		this.telefone = telefone;
@@ -86,12 +84,12 @@ public abstract class Cliente {
 		this.produtos = produtos;
 	}
 
-	public int getId() {
-		return id;
+	public int getIdCliente() {
+		return idCliente;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setIdCliente(int id) {
+		this.idCliente = id;
 	}
 }
 	

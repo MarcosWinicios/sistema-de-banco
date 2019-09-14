@@ -9,6 +9,7 @@ import br.com.marcos.projetoweb.conexao.Conexao;
 import br.com.marcos.projetoweb.model.Cliente;
 import br.com.marcos.projetoweb.model.PessoaFisica;
 import br.com.marcos.projetoweb.model.PessoaJuridica;
+import br.com.marcos.projetoweb.model.Produto;
 
 public class ClienteDAO {
 	private Connection conexao;
@@ -83,37 +84,13 @@ public class ClienteDAO {
 		}
 	}
 	
-	public PessoaFisica pesquisarPf(String cpf) {
-		String sql = "SELECT * FROM pessoaFisica WHERE cpf = ?";
-		try {
-			stmt = conexao.prepareStatement(sql);
-			stmt.setString(1, cpf);
-			ResultSet rs = this.stmt.executeQuery();
-			PessoaFisica  pF = new PessoaFisica();
-			if(rs.next()) {
-				String cpF = rs.getString("cpf");
-				String nomeMae = rs.getString("nomeMae");
-				String nomePai = rs.getString("nomePai");
-				int id = rs.getInt("idCliente");
-				
-				pF = (PessoaFisica) this.pesquisarId(id, 1);
-				pF.setCpf(cpF);
-				pF.setNomeMae(nomeMae);
-				pF.setNomePai(nomePai);
-			}
-			this.stmt.close();
-			return pF;
-			
-		}catch(Exception e) {
-			throw new RuntimeException(e);
-		}
-	} 
 	
-	public PessoaJuridica pesquisarPj(String cnpj) {
+	
+	/*public PessoaJuridica pesquisarPj(PessoaJuridica pj) {
 		String sql = "SELECT * FROM pessoaJuridica WHERE cnpj = ?";
 		try {
 			stmt = conexao.prepareStatement(sql);
-			stmt.setString(1, cnpj);
+			stmt.setString(1, pj.getCnpj());
 			ResultSet rs = this.stmt.executeQuery();
 			PessoaJuridica pJ = new PessoaJuridica();
 			if(rs.next()) {
@@ -129,36 +106,24 @@ public class ClienteDAO {
 		}catch(Exception e) {
 			throw new RuntimeException(e);
 		}
-	}
-	
-	public Cliente pesquisarId(int id, int tipo) {
-		String sql ="SELECT * FROM cliente WHERE id = ?";
+	}*/
 		
+	public Cliente pesquisarId(Cliente cliente) {
+		String sql ="SELECT * FROM cliente WHERE id = ?";	
 		try {
 			stmt = conexao.prepareStatement(sql);
-			stmt.setInt(1, id);
+			stmt.setInt(1, cliente.getIdCliente());
 			ResultSet rs = this.stmt.executeQuery();
-			Cliente c =  new PessoaFisica();
-			if(tipo == 1) {
 				if(rs.next()) {
-					c = new PessoaFisica(rs.getInt("id"),rs.getString("nome"), rs.getString("endereco"), rs.getString("telefone"));	
+					cliente.setEndereco(rs.getString("endereco"));
+					cliente.setNome(rs.getString("nome"));
+					cliente.setTelefone(rs.getString("telefone"));
 				}
-				this.stmt.close();
-				
-				return c;
-				
-			}else{
-				if(rs.next()) {
-					c = new PessoaJuridica(rs.getInt("id"),rs.getString("nome"), rs.getString("endereco"), rs.getString("telefone"));
-				}
-				this.stmt.close();
-				return c;
-			}
-			
+				this.stmt.close();	
+				return cliente;
 		}catch(Exception e) {
 			throw new RuntimeException(e);
 		}
-		
 	}
-	
 }
+

@@ -3,6 +3,7 @@ package br.com.marcos.projetoweb.model;
 import java.util.List;
 
 public class PessoaFisica extends Cliente {
+	private int id;
 	private String cpf;
 	private String nomeMae;
 	private String nomePai;
@@ -12,6 +13,7 @@ public class PessoaFisica extends Cliente {
 	public PessoaFisica() {
 		super();
 	}
+	
 
 	public PessoaFisica(int id, String nome, String endereco, String telefone) {
 		super(id, nome, endereco, telefone);
@@ -55,6 +57,14 @@ public class PessoaFisica extends Cliente {
 
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 }
