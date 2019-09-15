@@ -33,13 +33,12 @@ public class PessoaFisicaDAO {
 				int id = rs.getInt("idCliente");
 				
 				ClienteDAO cDAO = new ClienteDAO();
-				
+				pF.setIdCliente(id);;
 				pF = (PessoaFisica) cDAO.pesquisarId(pF);
 				pF.setCpf(cpF);
 				pF.setNomeMae(nomeMae);
 				pF.setNomePai(nomePai);
 				pF.setIdCliente(id);;
-				cDAO.pesquisarId(pF);
 			}
 			this.stmt.close();
 			return pF;
@@ -48,5 +47,22 @@ public class PessoaFisicaDAO {
 		}	
 	} 
 	
+	public void inserirPf(Cliente c) {
+		
+		String sql = "INSERT INTO pessoaFisica(cpf, nomeMae, nomePai, idCliente) VALUES (?,?,?,?)";
+		try {
+			ClienteDAO cDAO = new ClienteDAO();
+			PessoaFisica pf =  (PessoaFisica) cDAO.inserir(c);
+			stmt = conexao.prepareStatement(sql);
+			stmt.setString(1, pf.getCpf());
+			stmt.setString(2, pf.getNomeMae());
+			stmt.setString(3, pf.getNomePai());
+			stmt.setInt(4, pf.getIdCliente());
+			stmt.execute();
+			stmt.close();
+		}catch(Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
 	
 }

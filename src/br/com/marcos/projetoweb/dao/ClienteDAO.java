@@ -21,34 +21,21 @@ public class ClienteDAO {
 		this.conexao = conn.getConexao();
 	}
 	
-	public boolean inserirF(Cliente c) {
-		PessoaFisica x = (PessoaFisica) c;
-
-		String sql1 = "INSERT INTO cliente (nome, endereco, telefone, nomePai, nomeMae) VALUES(?,?,?,?,?)";
-		String sql2 = "INSERT INTO pessoaFisica(cpf, cliente) VALUES (?,?)";
+	public Cliente inserir(Cliente c) {
+		String sql = "INSERT INTO cliente (nome, endereco, telefone, nomePai, nomeMae) VALUES(?,?,?,?,?)";
 
 		try {
-			stmt = conexao.prepareStatement(sql1, Statement.RETURN_GENERATED_KEYS);
-			stmt.setString(1, x.getNome());
-			stmt.setString(2, x.getEndereco());
-			stmt.setString(3, x.getTelefone());
-			stmt.setString(4, x.getNomePai());
-			stmt.setString(5, x.getNomeMae());
+			stmt = conexao.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+			stmt.setString(1, c.getNome());
+			stmt.setString(2, c.getEndereco());
+			stmt.setString(3, c.getTelefone());
 			stmt.execute();
-			
 			//Buscar o ID inserido
 			ResultSet rs = stmt.getGeneratedKeys();
 			rs.next();
+			c.setIdCliente(rs.getInt(1));	
 			stmt.close();
-			stmt = conexao.prepareStatement(sql2);
-			//PessoaFisica x = (PessoaFisica) c;
-			stmt.setString(1, x.getCpf());
-			stmt.setInt(2, rs.getInt(1));
-			stmt.execute();
-			stmt.close();
-			
-			return true;
-			
+			return c;
 		}catch(Exception e) {
 			throw new RuntimeException(e);
 		}
@@ -70,12 +57,7 @@ public class ClienteDAO {
 			//Buscar o ultimo ID inserido
 			ResultSet rs = stmt.getGeneratedKeys();
 			rs.next();
-			stmt.close();
-			stmt = conexao.prepareStatement(sql2);
-			stmt.setString(1, x.getCnpj());
-			stmt.setInt(2, rs.getInt(1));
-			stmt.execute();
-			stmt.close();
+			
 			
 			return true;
 			

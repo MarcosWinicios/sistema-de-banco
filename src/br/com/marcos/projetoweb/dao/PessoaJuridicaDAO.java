@@ -36,6 +36,7 @@ public class PessoaJuridicaDAO {
 			pJ = (PessoaJuridica) cDAO.pesquisarId(pJ);
 			pJ.setCnpj(cnpJ);
 			pJ.setNomeFantasia(nomeFantasia);
+			pJ.setIdCliente(id);
 		}
 		this.stmt.close();
 		return pJ;
