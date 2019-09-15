@@ -3,11 +3,8 @@ package br.com.marcos.projetoweb.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
-
 import br.com.marcos.projetoweb.conexao.Conexao;
 import br.com.marcos.projetoweb.model.Cliente;
-import br.com.marcos.projetoweb.model.PessoaFisica;
 import br.com.marcos.projetoweb.model.PessoaJuridica;
 import br.com.marcos.projetoweb.dao.ClienteDAO;
 

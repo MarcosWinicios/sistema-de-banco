@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.Connection;
 
 import br.com.marcos.projetoweb.conexao.Conexao;
+import br.com.marcos.projetoweb.model.Cliente;
 import br.com.marcos.projetoweb.model.Seguro;
 
 public class SeguroDAO {
@@ -16,7 +17,7 @@ public class SeguroDAO {
 		this.conexao = conn.getConexao();
 	}
 	
-	public boolean inserirSeguro(Seguro seg, int idCliente) {
+	public boolean inserirSeguro(Seguro seg, Cliente c) {
 		String sql = "INSERT INTO seguro (numero, valor, situacao, idCliente)values (?,?,?,?)";
 		
 		try {
@@ -24,7 +25,7 @@ public class SeguroDAO {
 			stmt.setInt(1, seg.getNumero());
 			stmt.setDouble(2, seg.getValor());
 			stmt.setBoolean(3, seg.getSituacao());
-			stmt.setInt(4, idCliente);
+			stmt.setInt(4, c.getIdCliente());
 			stmt.execute();
 			stmt.close();
 			return true;

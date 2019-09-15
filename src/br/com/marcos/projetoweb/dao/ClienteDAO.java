@@ -7,9 +7,7 @@ import java.sql.Statement;
 
 import br.com.marcos.projetoweb.conexao.Conexao;
 import br.com.marcos.projetoweb.model.Cliente;
-import br.com.marcos.projetoweb.model.PessoaFisica;
-import br.com.marcos.projetoweb.model.PessoaJuridica;
-import br.com.marcos.projetoweb.model.Produto;
+import br.com.marcos.projetoweb.model.Seguro;
 
 public class ClienteDAO {
 	private Connection conexao;
@@ -59,5 +57,17 @@ public class ClienteDAO {
 			throw new RuntimeException(e);
 		}
 	}
+	
+	public void addSeguro(Seguro s, Cliente c) {
+		try {
+			SeguroDAO sDAO = new SeguroDAO();
+			sDAO.inserirSeguro(s, c);	
+		}catch(Exception e) {
+			throw new RuntimeException(e);
+		}
+			
+	}
+	
+	
 }
 
