@@ -1,0 +1,32 @@
+body{
+	background-color: rgb(150,200,250);
+}
+#cabecalho{
+	border: solid 1px black;
+	width: 100%;
+	height: 150px;
+	background-color: rgb(165,220,250);
+}
+#menu{
+	margin-top: 100px;
+	border: solid 1px black;
+	width: 100%;
+	height: 50px;
+	display: flex;
+}
+.opt-menu{
+	border: solid 1px black;
+	border-left: solid 0px black;
+	position: relative;
+	width: 100%;
+	height: 100%;
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+.a-menu{
+	text-decoration:none;
+	color: black;
+}
