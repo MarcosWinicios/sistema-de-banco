@@ -45,7 +45,7 @@ public class ContaDAO {
 		
 		try {
 			stmt = this.conexao.prepareStatement(sql);
-			stmt.setInt(1, c.getId());
+			stmt.setInt(1, c.getIdCliente());
 			ResultSet rs = stmt.executeQuery();
 			Conta x = null;
 			if(rs.next()) {

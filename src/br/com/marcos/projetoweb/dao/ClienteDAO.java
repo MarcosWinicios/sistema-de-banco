@@ -41,55 +41,7 @@ public class ClienteDAO {
 		}
 	}
 	
-	public boolean inserirJ(Cliente c) {
-		PessoaJuridica x = (PessoaJuridica) c;
 
-		String sql1 = "INSERT INTO cliente (nome, endereco, telefone) VALUES(?,?,?)";
-		String sql2 = "INSERT INTO pessoaFisica(cnpj, cliente) VALUES (?,?)";
-
-		try {
-			stmt = conexao.prepareStatement(sql1, Statement.RETURN_GENERATED_KEYS);
-			stmt.setString(1, x.getNome());
-			stmt.setString(2, x.getEndereco());
-			stmt.setString(3, x.getTelefone());
-			stmt.execute();
-			
-			//Buscar o ultimo ID inserido
-			ResultSet rs = stmt.getGeneratedKeys();
-			rs.next();
-			
-			
-			return true;
-			
-		}catch(Exception e) {
-			throw new RuntimeException(e);
-		}
-	}
-	
-	
-	
-	/*public PessoaJuridica pesquisarPj(PessoaJuridica pj) {
-		String sql = "SELECT * FROM pessoaJuridica WHERE cnpj = ?";
-		try {
-			stmt = conexao.prepareStatement(sql);
-			stmt.setString(1, pj.getCnpj());
-			ResultSet rs = this.stmt.executeQuery();
-			PessoaJuridica pJ = new PessoaJuridica();
-			if(rs.next()) {
-				String cnpJ = rs.getString("cnpj");
-				String nomeFantasia = rs.getString("nomeFantasia");
-				int id = rs.getInt("idCliente");
-				pJ = (PessoaJuridica) this.pesquisarId(id, 2);
-				pJ.setCnpj(cnpJ);
-				pJ.setNomeFantasia(nomeFantasia);
-			}
-			this.stmt.close();
-			return pJ;
-		}catch(Exception e) {
-			throw new RuntimeException(e);
-		}
-	}*/
-		
 	public Cliente pesquisarId(Cliente cliente) {
 		String sql ="SELECT * FROM cliente WHERE id = ?";	
 		try {
