@@ -11,7 +11,7 @@
 	<div id="cabecalho">
 		<div id="menu">
 			<div class="opt-menu">
-				<a class="a-menu" href="">Cadastrar Cliente</a>
+				<a class="a-menu" href="opcoesCliente.jsp">Cadastrar cliente</a>
 			</div>
 			<div class="opt-menu">
 				<a class="a-menu" href="">Cadastrar Conta</a>
@@ -22,7 +22,6 @@
 		</div>
 	</div>
 	<div id="sessao">
-	
 	</div>
 </body>
 </html>
