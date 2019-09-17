@@ -3,12 +3,15 @@ package br.com.marcos.projetoweb.dao;
  import java.sql.PreparedStatement;
  import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import br.com.marcos.projetoweb.conexao.Conexao;
 import br.com.marcos.projetoweb.model.Cliente;
 import br.com.marcos.projetoweb.model.Conta;
 import br.com.marcos.projetoweb.model.ContaCorrente;
 import br.com.marcos.projetoweb.model.ContaPoupanca;
+import br.com.marcos.projetoweb.model.Produto;
 
 public class ContaDAO {
 	private Connection conexao;
@@ -40,7 +43,7 @@ public class ContaDAO {
 		}
 	}
 	
-	public Conta pesquisarIdCliente(Cliente c) {
+	public List<Produto> pesquisarIdCliente(Cliente c) {
 		String sql = "SELECT *  FROM conta WHERE idCliente = ?";
 		
 		try {
@@ -48,19 +51,26 @@ public class ContaDAO {
 			stmt.setInt(1, c.getIdCliente());
 			ResultSet rs = stmt.executeQuery();
 			Conta x = null;
+			List<Produto> produtos = new ArrayList<Produto>();
 			if(rs.next()) {
 				x.setId(rs.getInt("id"));
 				x.setNumero(rs.getInt("numero"));
 				x.setSaldo(rs.getDouble("saldo"));
-				x.setSituacao(rs.getBoolean("situacao"));
+				if(rs.getInt("situacao") == 1) {
+					x.setSituacao(true);
+				}else {
+					x.setSituacao(false);
+				}		
 				if(rs.getInt("idTipo") == 1) {
-					ContaPoupanca a = (ContaPoupanca) x;	
+					ContaPoupanca a = (ContaPoupanca) x;
+					produtos.add(a);
 				}else {
 					ContaCorrente a = (ContaCorrente) x;
+					produtos.add(a);
 				}
-				return x;
+				return produtos;
 			}else {
-				return x;
+				return produtos;
 			}
 		}catch(Exception e) {
 			throw new RuntimeException(e);

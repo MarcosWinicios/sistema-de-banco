@@ -54,12 +54,12 @@ public class SeguroDAO {
 	}
 
 	
-	public Seguro pesquisarIdCliente(int id) {
+	public Seguro pesquisarIdCliente(Cliente c) {
 		String sql = "SELECT * FROM seguro WHERE idCliente = ?";
 		
 		try {
 			stmt = conexao.prepareStatement(sql);
-			stmt.setInt(1, id);
+			stmt.setInt(1, c.getIdCliente());
 			ResultSet rs = this.stmt.executeQuery();
 			Seguro seg = new Seguro();
 			if(rs.next()) {
