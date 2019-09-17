@@ -77,7 +77,7 @@ public class ContaDAO {
 		}
 	}
 	
-	public boolean sacar_depositar(int numeroConta, double valor) {
+	public boolean alterarSaldo(int numeroConta, double valor) {
 		String sql ="UPDATE conta SET saldo = ? WHERE numero = ?";
 		
 		try {
@@ -108,14 +108,14 @@ public class ContaDAO {
 	
 	public boolean ativar(int numero) {
 		String sql ="UPDATE conta SET situacao = TRUE WHERE numero = ?";
-				try {
-					stmt = this.conexao.prepareStatement(sql);
-					stmt.setInt(1, numero);
-					stmt.execute();
-					stmt.close();
-					return true;
-				} catch (Exception e) {
-					throw new RuntimeException(e);
-				}
+			try {
+				stmt = this.conexao.prepareStatement(sql);
+				stmt.setInt(1, numero);
+				stmt.execute();
+				stmt.close();
+				return true;
+			} catch (Exception e) {
+				throw new RuntimeException(e);
+			}
 		}
 }
