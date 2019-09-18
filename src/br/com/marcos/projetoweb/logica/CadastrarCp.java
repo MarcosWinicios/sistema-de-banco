@@ -8,17 +8,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.marcos.projetoweb.dao.ClienteDAO;
+import br.com.marcos.projetoweb.dao.ContaDAO;
+import br.com.marcos.projetoweb.model.Conta;
+import br.com.marcos.projetoweb.model.ContaPoupanca;
 import br.com.marcos.projetoweb.model.PessoaJuridica;
 
-public class ListarPJ implements Logica {
-
+public class CadastrarCp implements Logica {
+	
 	@Override
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		List<PessoaJuridica> lista = new ClienteDAO();
+		int numero = (Integer.parseInt(req.getParameter("numero")));
+		double saldo = (Double.parseDouble(req.getParameter("saldo")));
 		
-		req.setAttribute("lista", lista);
-		
+		Conta c = new ContaPoupanca();
+		c.setNumero(numero);
+		c.setSaldo(saldo);
+		new ContaDAO().cadastrar(c, idCliente);
 		return "/listaPJ.jsp";
 	}
-
 }

@@ -1,7 +1,10 @@
 package br.com.marcos.projetoweb.model;
 
 public class ContaPoupanca extends Conta {
-
+	public ContaPoupanca(){
+		super();
+	}
+	
 	ContaPoupanca(int numero) {
 		super(numero);
 	}

@@ -25,10 +25,10 @@ public class ContaDAO {
 	public boolean cadastrar(Conta c, int idCliente) {
 		String sql = null;
 		
-		if(c.getTipo() == "pupanca") {
-			sql = "INSERT INTO conta (numero, saldo,idCliente,idTipo) values(?,?,?" + 1 + ")";
+		if(c instanceof ContaPoupanca) {
+			sql = "INSERT INTO conta (numero, saldo,situacao,idCliente,idTipo) values(?,?,1,?,1 )";
 		}else {
-			sql = "INSERT INTO conta (numero, saldo,idCliente,idTipo) values(?,?,?" + 2 + ")";
+			sql = "INSERT INTO conta (numero, saldo,idCliente,idTipo) values(?,?,1,?,2)";
 		}
 		try {
 			stmt = this.conexao.prepareStatement(sql);
