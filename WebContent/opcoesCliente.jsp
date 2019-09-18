@@ -14,7 +14,7 @@
 				<a class="a-menu" href="opcoesCliente.jsp">Cadastrar cliente</a>
 			</div>
 			<div class="opt-menu">
-				<a class="a-menu" href="">Cadastrar Conta</a>
+				<a class="a-menu" href="pesquisarCliente.jsp">Acessar Cliente</a>
 			</div>
 			<div class="opt-menu">
 				<a class="a-menu" href="">Acessar conta</a>

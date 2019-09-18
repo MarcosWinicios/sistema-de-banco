@@ -26,13 +26,14 @@ public class ClienteDAO {
 	}
 	
 	public Cliente inserir(Cliente c) {
-		String sql = "INSERT INTO cliente (nome, endereco, telefone, nomePai, nomeMae) VALUES(?,?,?,?,?)";
+		String sql = "INSERT INTO cliente (nome, endereco, telefone) VALUES(?,?,?)";
 
 		try {
 			stmt = conexao.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 			stmt.setString(1, c.getNome());
 			stmt.setString(2, c.getEndereco());
 			stmt.setString(3, c.getTelefone());
+			
 			stmt.execute();
 			//Buscar o ID inserido
 			ResultSet rs = stmt.getGeneratedKeys();

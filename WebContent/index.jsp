@@ -11,10 +11,10 @@
 	<div id="cabecalho">
 		<div id="menu">
 			<div class="opt-menu">
-				<a class="a-menu" href="opcoesCliente.jsp">Cadastrar cliente</a>
+				<a class="a-menu" href="opcoesCliente.jsp">Gerenciar cliente</a>
 			</div>
 			<div class="opt-menu">
-				<a class="a-menu" href="">Cadastrar Conta</a>
+				<a class="a-menu" href="listaPJ.jsp">Pesquisar Cliente</a>
 			</div>
 			<div class="opt-menu">
 				<a class="a-menu" href="">Acessar conta</a>
