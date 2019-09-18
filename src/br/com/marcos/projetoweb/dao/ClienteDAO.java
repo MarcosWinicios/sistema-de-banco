@@ -36,8 +36,11 @@ public class ClienteDAO {
 			stmt.execute();
 			//Buscar o ID inserido
 			ResultSet rs = stmt.getGeneratedKeys();
-			rs.next();
-			c.setIdCliente(rs.getInt(1));	
+			if(rs.next()) {
+				int ultimoId = rs.getInt(1);
+				c.setIdCliente(ultimoId);
+			}
+				
 			stmt.close();
 			return c;
 		}catch(Exception e) {
