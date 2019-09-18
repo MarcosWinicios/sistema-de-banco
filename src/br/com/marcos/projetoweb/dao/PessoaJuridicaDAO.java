@@ -3,6 +3,9 @@ package br.com.marcos.projetoweb.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
 import br.com.marcos.projetoweb.conexao.Conexao;
 import br.com.marcos.projetoweb.model.Cliente;
 import br.com.marcos.projetoweb.model.PessoaJuridica;
@@ -55,8 +58,25 @@ public class PessoaJuridicaDAO {
 			stmt.close();
 		}catch(Exception e) {
 			throw new RuntimeException(e);
-				
-			
 		}
 	}
+	
+	public List<PessoaJuridica> listarPJ() {
+		String sql = "select * from cliente c join pessoaJuridica pj ON c.id = pj.idCliente";
+		try {
+			stmt = conexao.prepareStatement(sql);
+			ResultSet rs = stmt.executeQuery();
+			List<PessoaJuridica> lista = new ArrayList<PessoaJuridica>();
+			while(rs.next()) {
+//				Cliente cliente = new ClienteDAO().pesquisarId(rs.getInt("idCliente"));
+				PessoaJuridica pj = new PessoaJuridica(rs.getString("nome"), rs.getString("endereco"), rs.getString("telefone"), rs.getString("cnpj"), rs.getString("nomeFantasia"));
+				lista.add(pj);
+			}
+			stmt.close();
+			return lista;
+		} catch (Exception e) {
+			throw new RuntimeException(e);	
+		}
+	}
+	
 }
