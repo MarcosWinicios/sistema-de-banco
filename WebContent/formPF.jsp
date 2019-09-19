@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div id="sessao">
-		<form action="sistema?logica=CadastrarFisico" method="post">
+		<form action="sistema?logica=CadastrarPF" method="post">
 			<h3>Cadastro de Cliente Físico</h3>
 			Nome: <br> <input type="text" name="nome"> <br><br>
 			Endereço: <br> <input type="text" name="endereco"> <br><br>

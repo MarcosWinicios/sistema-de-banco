@@ -66,7 +66,7 @@ public class PessoaFisicaDAO {
 			throw new RuntimeException(e);
 		}
 	}
-	
+	/*
 	public List<PessoaFisica> listarPF() {
 		String sql = "select * from pessoaJuridica";
 		try {
@@ -85,5 +85,5 @@ public class PessoaFisicaDAO {
 			throw new RuntimeException(e);	
 		}
 	}
-	
+	*/
 }

@@ -10,7 +10,7 @@ import br.com.marcos.projetoweb.dao.PessoaFisicaDAO;
 import br.com.marcos.projetoweb.model.Cliente;
 import br.com.marcos.projetoweb.model.PessoaFisica;
 
-public class CadastrarFisico implements Logica{
+public class CadastrarPF implements Logica{
 
 	@Override
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
