@@ -50,7 +50,7 @@ public class PessoaJuridicaDAO {
 		try {
 			ClienteDAO cDAO = new ClienteDAO();
 			PessoaJuridica pJ =(PessoaJuridica) cDAO.inserir(c);
-			stmt = this.conexao.prepareStatement(sql);
+			stmt = conexao.prepareStatement(sql);
 			stmt.setString(1, pJ.getCnpj());
 			stmt.setString(2, pJ.getNomeFantasia());
 			stmt.setInt(3, pJ.getIdCliente());
