@@ -11,7 +11,7 @@ import br.com.marcos.projetoweb.dao.PessoaJuridicaDAO;
 import br.com.marcos.projetoweb.model.Cliente;
 
 
-public class AcessarClientePJ implements Logica {
+public class AcessarPJ implements Logica {
 	@Override
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		HttpSession session = req.getSession();

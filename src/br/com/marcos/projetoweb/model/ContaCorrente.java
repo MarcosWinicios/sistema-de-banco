@@ -1,7 +1,8 @@
 package br.com.marcos.projetoweb.model;
 
 public class ContaCorrente extends Conta {
-
+	
+	
 	public ContaCorrente(int numero) {
 		super(numero);
 		// TODO Auto-generated constructor stub

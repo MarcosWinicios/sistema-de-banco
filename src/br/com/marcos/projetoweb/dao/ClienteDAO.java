@@ -56,7 +56,7 @@ public class ClienteDAO {
 			ResultSet rs = this.stmt.executeQuery();
 			List<Produto> produtos = new ArrayList<Produto>();
 				if(rs.next()) {
-					cliente.setIdCliente(rs.getInt("idCliente"));
+					cliente.setIdCliente(rs.getInt("id"));
 					cliente.setEndereco(rs.getString("endereco"));
 					cliente.setNome(rs.getString("nome"));
 					cliente.setTelefone(rs.getString("telefone"));

@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div id="sessao">
-		<form action="sistema?logica=CadastrarSeguro" method="post">
+		<form action="sistema?logica=AcessarPJ" method="post">
 			CNPJ:  <br> <input type="text" name="cnpj"> <br><br>
 			<br> <input type="submit" value="Fazer login">
 		</form>

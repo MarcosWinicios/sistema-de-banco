@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div id="sessao">
-		<form action="sistema?logica=CadastrarSeguro" method="post">
+		<form action="sistema?logica=AcessarPF" method="post">
 			CPF:  <br> <input type="text" name="cpf"> <br><br>
 			<br> <input type="submit" value="Fazer login">
 		</form>

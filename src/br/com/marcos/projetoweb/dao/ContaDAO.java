@@ -43,35 +43,42 @@ public class ContaDAO {
 		}
 	}
 	
-	public List<Produto> pesquisarIdCliente(Cliente c) {
+	public ArrayList<Produto> pesquisarIdCliente(Cliente c) {
 		String sql = "SELECT *  FROM conta WHERE idCliente = ?";
 		
 		try {
 			stmt = this.conexao.prepareStatement(sql);
 			stmt.setInt(1, c.getIdCliente());
 			ResultSet rs = stmt.executeQuery();
-			Conta x = null;
-			List<Produto> produtos = new ArrayList<Produto>();
+			ArrayList<Produto> produtos = new ArrayList<Produto>();
 			if(rs.next()) {
-				x.setId(rs.getInt("id"));
-				x.setNumero(rs.getInt("numero"));
-				x.setSaldo(rs.getDouble("saldo"));
-				if(rs.getInt("situacao") == 1) {
-					x.setSituacao(true);
-				}else {
-					x.setSituacao(false);
-				}		
-				if(rs.getInt("idTipo") == 1) {
-					ContaPoupanca a = (ContaPoupanca) x;
+				Conta a;
+				if(rs.getInt("idTipoConta") == 1) {
+					 a = new ContaPoupanca();
+					a.setId(rs.getInt("id"));
+					a.setNumero(rs.getInt("numero"));
+					a.setSaldo(rs.getDouble("saldo"));
+					if(rs.getInt("situacao") == 1) {
+						a.setSituacao(true);
+					}else {
+						a.setSituacao(false);
+					}		
 					produtos.add(a);
 				}else {
-					ContaCorrente a = (ContaCorrente) x;
+					a = new ContaCorrente(rs.getInt("numero")) ;
+					a.setId(rs.getInt("id"));
+					a.setSaldo(rs.getDouble("saldo"));
+					if(rs.getInt("situacao") == 1) {
+						a.setSituacao(true);
+					}else {
+						a.setSituacao(false);
+					}		
 					produtos.add(a);
 				}
-				return produtos;
-			}else {
-				return produtos;
+			
 			}
+				return produtos;
+	
 		}catch(Exception e) {
 			throw new RuntimeException(e);
 		}
