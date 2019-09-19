@@ -3,6 +3,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import br.com.marcos.projetoweb.conexao.Conexao;
 import br.com.marcos.projetoweb.model.Cliente;
@@ -62,6 +64,25 @@ public class PessoaFisicaDAO {
 			stmt.close();
 		}catch(Exception e) {
 			throw new RuntimeException(e);
+		}
+	}
+	
+	public List<PessoaFisica> listarPF() {
+		String sql = "select * from pessoaJuridica";
+		try {
+			stmt = conexao.prepareStatement(sql);
+			ResultSet rs = stmt.executeQuery();
+			List<PessoaFisica> lista = new ArrayList<PessoaFisica>();
+			while(rs.next()) {
+				Cliente cliente = new ClienteDAO().pesquisarId(cliente);
+				PessoaFisica pf = new PessoaFisica(rs.getString("cpf"), 
+						rs.getString("nomeMae"), rs.getString("nomePai"), cliente));
+				lista.add(pf);
+			}
+			stmt.close();
+			return lista;
+		} catch (Exception e) {
+			throw new RuntimeException(e);	
 		}
 	}
 	

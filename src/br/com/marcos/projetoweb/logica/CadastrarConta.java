@@ -15,15 +15,14 @@ public class CadastrarConta implements Logica {
 	@Override
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		int numero = Integer.parseInt(req.getParameter("numero"));
-//		int situacao = Integer.parseInt(req.getParameter("situacao"));
 		double saldo = Double.parseDouble(req.getParameter("saldo"));
 //		int idCliente = Integer.parseInt(req.getParameter("idCliente"));
 		
-		Conta contaCorrente = new ContaCorrente();
+		Conta contaCorrente = new ContaCorrente(numero);
 		contaCorrente.setNumero(numero);
-		contaCorrente.setSituacao(true);
 		contaCorrente.setSaldo(saldo);
-		int idCliente = 1;
+		
+		int idCliente = 6;
 		
 		new ContaDAO().cadastrar(contaCorrente, idCliente);
 		
