@@ -14,6 +14,9 @@
 		<div class="opt-menu">
 			<a target="sessao" class="a-menu" href="produtos.jsp">Acessar Produto</a>
 		</div>
+		<div class="opt-menu">
+			<a target="sessao" class="a-menu" href="cadastrarProduto.jsp">Cadastrar Produto</a>
+		</div>
 	</div>
 </body>
 </html>
