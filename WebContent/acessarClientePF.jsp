@@ -7,9 +7,11 @@
 	<link rel="stylesheet" href="main.css">
 </head>
 <body>
-	<div id="menu">
-		<div class="opt-menu">
-			<a target="sessao" class="a-menu" href="manterCliente.jsp">Manter Cliente</a>
-		</div>
+	<div id="sessao">
+		<form action="sistema?logica=CadastrarSeguro" method="post">
+			CPF:  <br> <input type="text" name="cpf"> <br><br>
+			<br> <input type="submit" value="Fazer login">
+		</form>
 	</div>
 </body>
+</html>

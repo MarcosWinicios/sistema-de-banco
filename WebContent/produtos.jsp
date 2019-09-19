@@ -9,7 +9,11 @@
 <body>
 	<div id="menu">
 		<div class="opt-menu">
-			<a target="sessao" class="a-menu" href="manterCliente.jsp">Manter Cliente</a>
+			<a target="sessao" class="a-menu" href="conta.jsp">Acessar Conta</a>
+		</div>
+		<div class="opt-menu">
+			<a target="sessao" class="a-menu" href="seguro.jsp">Acessar Seguro</a>
 		</div>
 	</div>
 </body>
+</html>

@@ -7,9 +7,15 @@
 	<link rel="stylesheet" href="main.css">
 </head>
 <body>
-	<div id="menu">
-		<div class="opt-menu">
-			<a target="sessao" class="a-menu" href="manterCliente.jsp">Manter Cliente</a>
-		</div>
+	<div id="sessao">
+		Numero: 
+		<br><br>
+		Tipo: 
+		<br><br>
+		Saldo: 
+		<br><br>
+		Situacao: 
+		<br><br>
 	</div>
 </body>
+</html>
