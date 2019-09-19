@@ -10,12 +10,7 @@
 <body>
 	<div id="sessao">
 		<form action="sistema?logica=AcessarSeguro " method="post">
-			Numero da Conta:  <br> <input type="text" name="cpf"> <br><br>
-			Tipo: <br>
-			<select name="tipoConta">
-				<option value="corrente">Corrente</option>
-				<option value="poupanca">Poupanca</option>
-			</select><br>
+			Numero do seguro:  <br> <input type="text" name="numSeguro"> <br><br>
 			<br> <input type="submit" value="Fazer login">
 		</form>
 	</div>
