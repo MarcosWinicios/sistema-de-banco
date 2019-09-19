@@ -35,12 +35,12 @@ public class PessoaFisicaDAO {
 				int id = rs.getInt("idCliente");
 				
 				ClienteDAO cDAO = new ClienteDAO();
-				pF.setIdCliente(id);;
+				pF.setIdCliente(id);
 				pF = (PessoaFisica) cDAO.pesquisarId(pF);
 				pF.setCpf(cpF);
 				pF.setNomeMae(nomeMae);
 				pF.setNomePai(nomePai);
-				pF.setIdCliente(id);;
+				pF.setIdCliente(id);
 			}
 			this.stmt.close();
 			return pF;

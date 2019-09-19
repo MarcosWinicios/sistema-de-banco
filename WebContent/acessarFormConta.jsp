@@ -10,7 +10,7 @@
 <body>
 	<div id="sessao">
 		<form action="sistema?logica=AcessarConta" method="post">
-			Numero da Conta:  <br> <input type="text" name="cpf"> <br><br>
+			Numero da Conta:  <br> <input type="text" name="numConta"> <br><br>
 			Tipo: <br>
 			<select name="tipoConta">
 				<option value="corrente">Corrente</option>

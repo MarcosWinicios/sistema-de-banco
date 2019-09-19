@@ -7,6 +7,7 @@
 <%@ page import="br.com.marcos.projetoweb.model.ContaPoupanca" %>
 <%@ page import="br.com.marcos.projetoweb.model.Seguro" %>
 <%@ page import="br.com.marcos.projetoweb.model.Produto" %>
+<%@ page import="java.util.List" %>>
 
 <!DOCTYPE html>
 <html>
@@ -27,24 +28,19 @@
 		<br><br>
 		Produtos: 
 		<%
-			for(Produto p : cliente.getProdutos()){
+		List<Produto> produtos = (List<Produto>)cliente.getProdutos();
+		for(Produto p : produtos){
 				if(p instanceof ContaPoupanca){
 					Conta conta = (Conta)p;
-					%>
-					<p>Conta Poupanca: <%= conta.getNumero() %></p>
-					<%
+					out.println("<p>Conta Poupanca: " + conta.getNumero() + "</p>");
 				}
 				else if(p instanceof ContaCorrente){
 					Conta conta = (Conta)p;
-					%>
-					<p>Conta Corrente: <%= conta.getNumero() %></p>
-					<%
+					out.println("<p>Conta Corrente: " + conta.getNumero() + "</p>");
 				}
 				else if(p instanceof Seguro){
 					Seguro seguro = (Seguro)p;
-					%>
-					<p>Seguro: <%= seguro.getNumero() %></p>
-					<%
+					out.println("<p>Seguro: " + seguro.getNumero() + "</p>");
 				}
 				
 			}
