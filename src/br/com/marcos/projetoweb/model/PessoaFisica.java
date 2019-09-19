@@ -9,7 +9,14 @@ public class PessoaFisica extends Cliente {
 	private String nomePai;
 	
 	
-	
+	public PessoaFisica(String nome, String endereco, String telefone, String cpf, String nomeMae, String nomePai) {
+		super(nome, endereco,telefone);
+		this.cpf = cpf;
+		this.nomeMae = nomeMae;
+		this.nomePai = nomePai;
+		
+	}
+
 	public PessoaFisica() {
 		super();
 	}

@@ -33,15 +33,13 @@ public class ClienteDAO {
 			stmt.setString(1, c.getNome());
 			stmt.setString(2, c.getEndereco());
 			stmt.setString(3, c.getTelefone());
-			
 			stmt.execute();
 			//Buscar o ID inserido
 			ResultSet rs = stmt.getGeneratedKeys();
 			if(rs.next()) {
-				int ultimoId = rs.getInt(1);
-				c.setIdCliente(ultimoId);
+				c.setIdCliente(rs.getInt(1));
 			}
-				
+			
 			stmt.close();
 			return c;
 		}catch(Exception e) {

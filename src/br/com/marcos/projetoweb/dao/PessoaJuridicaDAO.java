@@ -45,7 +45,7 @@ public class PessoaJuridicaDAO {
 		}
 	}
 	
-	public void inserir(Cliente c) {
+	public boolean inserir(Cliente c) {	
 		String sql = "INSERT INTO pessoaJuridica(cnpj, nomeFantasia, idCliente) VALUES (?,?,?)";
 		try {
 			ClienteDAO cDAO = new ClienteDAO();
@@ -56,6 +56,7 @@ public class PessoaJuridicaDAO {
 			stmt.setInt(3, pJ.getIdCliente());
 			stmt.execute();
 			stmt.close();
+			return true;
 		}catch(Exception e) {
 			throw new RuntimeException(e);
 		}
