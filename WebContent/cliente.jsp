@@ -9,7 +9,7 @@
 <body>
 	<div id="menu">
 		<div class="opt-menu">
-			<a target="sessao" class="a-menu" href="dadosCliente.jsp">Ver Dados</a>
+			<a target="sessao" class="a-menu" href="sistema?logica=dadosCliente">Ver Dados</a>
 		</div>
 		<div class="opt-menu">
 			<a target="sessao" class="a-menu" href="produtos.jsp">Acessar Produto</a>

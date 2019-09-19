@@ -21,7 +21,7 @@ public class AcessarPJ implements Logica {
 		
 		Cliente pj = pjDAO.pesquisarPj(cnpj);
 		
-		session.setAttribute("idCliente", pj.getIdCliente());
+		session.setAttribute("cliente", pj);
 		
 		return "cliente.jsp";
 	}

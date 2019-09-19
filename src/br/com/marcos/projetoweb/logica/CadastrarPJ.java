@@ -6,7 +6,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.com.marcos.projetoweb.dao.ClienteDAO;
 import br.com.marcos.projetoweb.dao.PessoaJuridicaDAO;
 import br.com.marcos.projetoweb.model.Cliente;
 import br.com.marcos.projetoweb.model.PessoaJuridica;
