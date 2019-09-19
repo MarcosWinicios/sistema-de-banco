@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div id="sessao">
-		<form action="sistema?logica=CadastrarConta" method="post">
+		<form action="sistema?logica=CadastrarSeguro" method="post">
 			Numero da apolice:  <br> <input type="text" name="numApolice"> <br><br>
 			Valor:  <br> <input type="text" name="valorSeguro"> <br><br>
 			<br> <input type="submit" value="Cadastrar Seguro">

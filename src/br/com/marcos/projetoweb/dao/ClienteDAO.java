@@ -74,7 +74,7 @@ public class ClienteDAO {
 	public void addSeguro(Seguro s, Cliente c) {
 		try {
 			SeguroDAO sDAO = new SeguroDAO();
-			sDAO.inserirSeguro(s, c);	
+			sDAO.inserirSeguro(s, c.getIdCliente());	
 		}catch(Exception e) {
 			throw new RuntimeException(e);
 		}

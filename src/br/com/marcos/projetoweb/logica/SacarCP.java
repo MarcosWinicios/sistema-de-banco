@@ -7,21 +7,25 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import br.com.marcos.projetoweb.dao.PessoaFisicaDAO;
-import br.com.marcos.projetoweb.model.PessoaFisica;
+import br.com.marcos.projetoweb.dao.ContaDAO;
+import br.com.marcos.projetoweb.dao.ContaPoupancaDAO;
 
-public class AcessarPF implements Logica {
+public class SacarCP implements Logica{
 
 	@Override
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession session = req.getSession();
 		
-		String cpf = req.getParameter("cpf");
+		Double valorSacar = (Double.parseDouble(req.getParameter("valor")));
 		
-		PessoaFisica pf = new PessoaFisicaDAO().pesquisarPf(cpf);
-		session.setAttribute("cliente", pf);
-		return "dadosPF.jsp";
+		
+		
+		
+		ContaDAO cDAO = new ContaDAO();
+		cDAO.alterarSaldo(numeroConta, valor);
+		
+		return null;
 	}
 
 }

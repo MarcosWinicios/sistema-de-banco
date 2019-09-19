@@ -13,9 +13,9 @@ public class CadastrarSeguro implements Logica {
 
 	@Override
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		int numero = Integer.parseInt(req.getParameter("numero"));
-		int situacao = Integer.parseInt(req.getParameter("situacao"));
-		double valor = Double.parseDouble(req.getParameter("valor"));
+		int numero = Integer.parseInt(req.getParameter("numApolice"));
+		//int situacao = Integer.parseInt(req.getParameter("situacao"));
+		double valor = Double.parseDouble(req.getParameter("valorSeguro"));
 		int idCliente = Integer.parseInt(req.getParameter("idCliente"));
 		
 		Seguro seguro = new Seguro();
@@ -23,9 +23,9 @@ public class CadastrarSeguro implements Logica {
 		seguro.setSituacao(true);
 		seguro.setValor(valor);
 		
-		new SeguroDAO().inserirSeguro(seguro, cliente);
+		new SeguroDAO().inserirSeguro(seguro, idCliente);
 		
-		return "texto";
+		return "index.jsp";
 	}
 
 }

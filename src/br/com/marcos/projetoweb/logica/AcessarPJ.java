@@ -9,9 +9,12 @@ import javax.servlet.http.HttpSession;
 
 import br.com.marcos.projetoweb.dao.PessoaJuridicaDAO;
 import br.com.marcos.projetoweb.model.Cliente;
+import br.com.marcos.projetoweb.model.PessoaJuridica;
 
 
 public class AcessarPJ implements Logica {
+	private PessoaJuridica pessoaSelecionada;
+
 	@Override
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		HttpSession session = req.getSession();
@@ -20,9 +23,14 @@ public class AcessarPJ implements Logica {
 		PessoaJuridicaDAO pjDAO = new PessoaJuridicaDAO(); 
 		
 		Cliente pj = pjDAO.pesquisarPj(cnpj);
+		this.pessoaSelecionada = (PessoaJuridica) pj;
 		
 		session.setAttribute("cliente", pj);
 		
 		return "cliente.jsp";
+	}
+
+	public PessoaJuridica getPessoaSelecionada() {
+		return pessoaSelecionada;
 	}
 }

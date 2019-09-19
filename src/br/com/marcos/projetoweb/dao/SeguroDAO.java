@@ -17,7 +17,7 @@ public class SeguroDAO {
 		this.conexao = conn.getConexao();
 	}
 	
-	public boolean inserirSeguro(Seguro seg, Cliente c) {
+	public boolean inserirSeguro(Seguro seg, int idCliente) {
 		String sql = "INSERT INTO seguro (numero, valor, situacao, idCliente)values (?,?,?,?)";
 		
 		try {
@@ -25,7 +25,7 @@ public class SeguroDAO {
 			stmt.setInt(1, seg.getNumero());
 			stmt.setDouble(2, seg.getValor());
 			stmt.setBoolean(3, seg.getSituacao());
-			stmt.setInt(4, c.getIdCliente());
+			stmt.setInt(4, idCliente);
 			stmt.execute();
 			stmt.close();
 			return true;
