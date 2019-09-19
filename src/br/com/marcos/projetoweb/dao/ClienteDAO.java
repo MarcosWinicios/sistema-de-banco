@@ -63,6 +63,7 @@ public class ClienteDAO {
 					produtos = new ContaDAO().pesquisarIdCliente(cliente);
 					Seguro seg = new SeguroDAO().pesquisarIdCliente(cliente);
 					produtos.add(seg);
+					cliente.setProdutos(produtos);
 				}
 				this.stmt.close();	
 				return cliente;
