@@ -21,7 +21,7 @@ public class AcessarPF implements Logica {
 		
 		PessoaFisica pf = new PessoaFisicaDAO().pesquisarPf(cpf);
 		session.setAttribute("cliente", pf);
-		return "dadosPF.jsp";
+		return "cliente.jsp";
 	}
 
 }

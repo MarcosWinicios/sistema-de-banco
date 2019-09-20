@@ -11,11 +11,6 @@
 	<div id="sessao">
 		<form action="sistema?logica=AcessarConta" method="post">
 			Numero da Conta:  <br> <input type="text" name="numConta"> <br><br>
-			Tipo: <br>
-			<select name="tipoConta">
-				<option value="corrente">Corrente</option>
-				<option value="poupanca">Poupanca</option>
-			</select><br>
 			<br> <input type="submit" value="Fazer login">
 		</form>
 	</div>

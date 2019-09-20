@@ -5,16 +5,27 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import br.com.marcos.projetoweb.dao.PessoaJuridicaDAO;
+import br.com.marcos.projetoweb.model.Cliente;
 
 public class AcessarConta implements Logica {
 
 	@Override
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		int numeroConta = (Integer.parseInt(req.getParameter("numero")));
+		HttpSession session = req.getSession();
+		
+		String cnpj = req.getParameter("cnpj");
+		PessoaJuridicaDAO pjDAO = new PessoaJuridicaDAO(); 
+		
+		Cliente pj = pjDAO.pesquisarPj(cnpj);
 		
 		
-		return null;
+		session.setAttribute("cliente", pj);
+		
+		return "cliente.jsp";
 	}
 	
 }
