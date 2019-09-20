@@ -28,7 +28,7 @@ public class ContaDAO {
 		if(c instanceof ContaPoupanca) {
 			sql = "INSERT INTO conta (numero, saldo,situacao,idCliente,idTipo) values(?,?,1,?,1 )";
 		}else {
-			sql = "INSERT INTO conta (numero, saldo,idCliente,idTipo) values(?,?,1,?,2)";
+			sql = "INSERT INTO conta (numero, saldo,situacao,idCliente,idTipo) values(?,?,1,?,2)";
 		}
 		try {
 			stmt = this.conexao.prepareStatement(sql);
