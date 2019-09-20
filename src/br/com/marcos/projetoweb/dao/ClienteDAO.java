@@ -62,7 +62,9 @@ public class ClienteDAO {
 					cliente.setTelefone(rs.getString("telefone"));
 					produtos = new ContaDAO().pesquisarIdCliente(cliente);
 					Seguro seg = new SeguroDAO().pesquisarIdCliente(cliente);
-					produtos.add(seg);
+					if(seg.getId() != 0) {
+						produtos.add(seg);
+					}
 					cliente.setProdutos(produtos);
 				}
 				this.stmt.close();	
