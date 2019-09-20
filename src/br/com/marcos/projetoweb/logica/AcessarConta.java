@@ -7,8 +7,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import br.com.marcos.projetoweb.dao.PessoaJuridicaDAO;
 import br.com.marcos.projetoweb.model.Cliente;
+import br.com.marcos.projetoweb.model.ContaCorrente;
+import br.com.marcos.projetoweb.model.ContaPoupanca;
+import br.com.marcos.projetoweb.model.Produto;
 
 public class AcessarConta implements Logica {
 
@@ -17,15 +19,25 @@ public class AcessarConta implements Logica {
 		// TODO Auto-generated method stub
 		HttpSession session = req.getSession();
 		
-		String cnpj = req.getParameter("cnpj");
-		PessoaJuridicaDAO pjDAO = new PessoaJuridicaDAO(); 
+		int numConta = Integer.parseInt(req.getParameter("numConta"));
+		Cliente cliente = (Cliente)session.getAttribute("cliente");
 		
-		Cliente pj = pjDAO.pesquisarPj(cnpj);
+		for(Produto p : cliente.getProdutos()) {
+			if(p instanceof ContaCorrente) {
+				ContaCorrente contaC = (ContaCorrente)p;
+				if(contaC.getNumero() == numConta) {
+					session.setAttribute("conta", contaC);
+				}
+			}
+			else if(p instanceof ContaPoupanca) {
+				ContaPoupanca contaP = (ContaPoupanca)p;
+				if(contaP.getNumero() == numConta) {
+					session.setAttribute("conta", contaP);
+				}
+			}
+		}
 		
-		
-		session.setAttribute("cliente", pj);
-		
-		return "cliente.jsp";
+		return "conta.jsp";
 	}
 	
 }
