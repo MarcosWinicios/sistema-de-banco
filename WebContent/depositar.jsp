@@ -10,7 +10,7 @@
 	<div id="sessao">
 		<form action="sistema?logica=Depositar" method="post">
 			<h3>Depositar</h3>
-			Quantia: <br> <input type="text" name="nome"> <br><br>
+			Quantia: <br> <input type="text" name="valor"> <br><br>
 			<br> <input type="submit" value="Depositar">
 		</form>
 	</div>
