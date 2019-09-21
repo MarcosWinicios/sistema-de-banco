@@ -9,16 +9,19 @@
 <body>
 	<div id="menu">
 		<div class="opt-menu">
-			<a target="sessao" class="a-menu" href="dadosConta.jsp">Ver Dados</a>
+			<a class="a-menu" href="dadosConta.jsp">Ver Dados</a>
 		</div>
 		<div class="opt-menu">
-			<a target="sessao" class="a-menu" href="sacar.jsp">Sacar</a>
+			<a class="a-menu" href="sacar.jsp">Sacar</a>
 		</div>
 		<div class="opt-menu">
-			<a target="sessao" class="a-menu" href="depositar.jsp">Depositar</a>
+			<a class="a-menu" href="depositar.jsp">Depositar</a>
 		</div>
 		<div class="opt-menu">
-			<a target="sessao" class="a-menu" href="transferir.jsp">Transferir</a>
+			<a class="a-menu" href="transferir.jsp">Transferir</a>
+		</div>
+		<div class="opt-menu">
+			<a class="a-menu" href="desativar.jsp">Desativar</a>
 		</div>
 	</div>
 </body>

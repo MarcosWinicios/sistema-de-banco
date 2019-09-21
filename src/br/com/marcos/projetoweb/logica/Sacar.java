@@ -9,8 +9,10 @@ import javax.servlet.http.HttpSession;
 
 import br.com.marcos.projetoweb.dao.ContaDAO;
 import br.com.marcos.projetoweb.dao.ContaPoupancaDAO;
+import br.com.marcos.projetoweb.model.Conta;
+import br.com.marcos.projetoweb.model.ContaCorrente;
 
-public class SacarCP implements Logica{
+public class Sacar implements Logica{
 
 	@Override
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -18,12 +20,15 @@ public class SacarCP implements Logica{
 		HttpSession session = req.getSession();
 		
 		Double valorSacar = (Double.parseDouble(req.getParameter("valor")));
-		
-		
-		
-		
+		Conta conta = (Conta)session.getAttribute("conta");
+		if(conta instanceof ContaCorrente) {
+			conta.setSaldo(conta.getSaldo() - (valorSacar * 1.01));
+		}
+		else {
+			conta.setSaldo(conta.getSaldo() - valorSacar);
+		}
 		ContaDAO cDAO = new ContaDAO();
-		cDAO.alterarSaldo(numeroConta, valor);
+		cDAO.alterarSaldo(conta);
 		
 		return null;
 	}

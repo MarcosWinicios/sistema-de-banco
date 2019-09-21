@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%><!DOCTYPE html>
+<%@ page import="br.com.marcos.projetoweb.model.Conta" %>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -8,13 +9,16 @@
 </head>
 <body>
 	<div id="sessao">
-		Numero: 
+		<%
+		Conta conta = (Conta)session.getAttribute("conta");
+		%>
+		Numero: <%= conta.getNumero()%>
 		<br><br>
-		Tipo: 
+		Tipo:  <%= conta.getTipo()%>
 		<br><br>
-		Saldo: 
+		Saldo:  <%= conta.getSaldo()%>
 		<br><br>
-		Situacao: 
+		Situacao:  <%= conta.getSituacao()%>
 		<br><br>
 	</div>
 </body>

@@ -84,13 +84,13 @@ public class ContaDAO {
 		}
 	}
 	
-	public boolean alterarSaldo(int numeroConta, double valor) {
+	public boolean alterarSaldo(Conta conta) {
 		String sql ="UPDATE conta SET saldo = ? WHERE numero = ?";
 		
 		try {
 			stmt = this.conexao.prepareStatement(sql);
-			stmt.setDouble(1, valor);
-			stmt.setInt(2, numeroConta);
+			stmt.setDouble(1, conta.getSaldo());
+			stmt.setInt(2, conta.getNumero());
 			stmt.execute();
 			stmt.close();
 			return true;
