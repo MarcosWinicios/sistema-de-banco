@@ -1,7 +1,3 @@
 /build/
 
 .classpath
-
-src/br/com/marcos/projetoweb/conexao/Conexao.java
-
-Conexao.java
