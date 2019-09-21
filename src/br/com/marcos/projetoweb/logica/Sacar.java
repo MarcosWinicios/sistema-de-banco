@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import br.com.marcos.projetoweb.dao.ContaDAO;
-import br.com.marcos.projetoweb.dao.ContaPoupancaDAO;
 import br.com.marcos.projetoweb.model.Conta;
 import br.com.marcos.projetoweb.model.ContaCorrente;
 
