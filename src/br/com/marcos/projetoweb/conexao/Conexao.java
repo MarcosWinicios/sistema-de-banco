@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 public class Conexao {
 	private static final String DSN = "jdbc:mysql://localhost:3306/projetoWeb?useTimezone=true&serverTimezone=UTC";
 	private static final String USUARIO = "root";
-	private static final String SENHA = "";
+	private static final String SENHA = "123456";
 
 	public Connection getConexao() {
 		try {
