@@ -18,7 +18,7 @@ public class Depositar implements Logica {
 		HttpSession session = req.getSession();
 				
 		Double valorDeposito = (Double.parseDouble(req.getParameter("valor")));
-		Conta conta = (Conta)session.getAttribute("conta");
+		Conta conta = (Conta)session.getAttribute("produto");
 		conta.setSaldo(conta.getSaldo() + valorDeposito);
 		
 		ContaDAO cDAO = new ContaDAO();

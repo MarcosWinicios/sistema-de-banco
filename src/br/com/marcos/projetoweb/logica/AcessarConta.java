@@ -26,13 +26,13 @@ public class AcessarConta implements Logica {
 			if(p instanceof ContaCorrente) {
 				ContaCorrente contaC = (ContaCorrente)p;
 				if(contaC.getNumero() == numConta) {
-					session.setAttribute("conta", contaC);
+					session.setAttribute("produto", contaC);
 				}
 			}
 			else if(p instanceof ContaPoupanca) {
 				ContaPoupanca contaP = (ContaPoupanca)p;
 				if(contaP.getNumero() == numConta) {
-					session.setAttribute("conta", contaP);
+					session.setAttribute("produto", contaP);
 				}
 			}
 		}

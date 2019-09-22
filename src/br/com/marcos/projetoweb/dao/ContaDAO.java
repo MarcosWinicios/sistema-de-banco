@@ -43,6 +43,37 @@ public class ContaDAO {
 		}
 	}
 	
+	public Conta pesquisarNumero(int numero) {
+		String sql = "SELECT *  FROM conta WHERE numero = ?";
+		
+		try {
+			stmt = this.conexao.prepareStatement(sql);
+			stmt.setInt(1, numero);
+			ResultSet rs = stmt.executeQuery();
+			Conta conta;
+			if(rs.next()) {
+				if(rs.getInt("idTipoConta") == 2) {
+					conta = new ContaPoupanca();
+				}
+				else{
+					conta = new ContaCorrente(1);
+				}
+				conta.setNumero(rs.getInt("numero"));
+				conta.setId(rs.getInt("id"));
+				conta.setSaldo(rs.getDouble("saldo"));
+				if(rs.getInt("situacao") == 1) {
+					conta.setSituacao(true);
+				}else {
+					conta.setSituacao(false);
+				}
+				return conta;
+			}	
+		}catch(Exception e) {
+			throw new RuntimeException(e);
+		}
+		return null;
+	}
+	
 	public ArrayList<Produto> pesquisarIdCliente(Cliente c) {
 		String sql = "SELECT *  FROM conta WHERE idCliente = ?";
 		
@@ -54,7 +85,7 @@ public class ContaDAO {
 			if(rs.next()) {
 				Conta a;
 				if(rs.getInt("idTipoConta") == 1) {
-					 a = new ContaPoupanca();
+					a = new ContaCorrente(rs.getInt("numero"));
 					a.setId(rs.getInt("id"));
 					a.setNumero(rs.getInt("numero"));
 					a.setSaldo(rs.getDouble("saldo"));
@@ -64,8 +95,8 @@ public class ContaDAO {
 						a.setSituacao(false);
 					}		
 					produtos.add(a);
-				}else {
-					a = new ContaCorrente(rs.getInt("numero")) ;
+				}else if(rs.getInt("idTipoConta") == 2){
+					a = new ContaPoupanca() ;
 					a.setId(rs.getInt("id"));
 					a.setSaldo(rs.getDouble("saldo"));
 					if(rs.getInt("situacao") == 1) {
@@ -99,12 +130,13 @@ public class ContaDAO {
 		}
 	}
 	
-	public boolean desativar(int numero) {
-		String sql ="UPDATE conta SET situacao = FALSE WHERE numero = ?";
+	public boolean alterarSituacao(Conta conta) {
+		String sql ="UPDATE conta SET situacao = ? WHERE numero = ?";
 		
 		try {
 			stmt = this.conexao.prepareStatement(sql);
-			stmt.setInt(1, numero);
+			stmt.setBoolean(1, conta.getSituacao());
+			stmt.setInt(2, conta.getNumero());
 			stmt.execute();
 			stmt.close();
 			return true;
@@ -112,17 +144,4 @@ public class ContaDAO {
 			throw new RuntimeException(e);
 		}
 	}
-	
-	public boolean ativar(int numero) {
-		String sql ="UPDATE conta SET situacao = TRUE WHERE numero = ?";
-			try {
-				stmt = this.conexao.prepareStatement(sql);
-				stmt.setInt(1, numero);
-				stmt.execute();
-				stmt.close();
-				return true;
-			} catch (Exception e) {
-				throw new RuntimeException(e);
-			}
-		}
 }

@@ -10,7 +10,7 @@
 <body>
 	<div id="sessao">
 		<%
-		Conta conta = (Conta)session.getAttribute("conta");
+		Conta conta = (Conta)session.getAttribute("produto");
 		%>
 		Numero: <%= conta.getNumero()%>
 		<br><br>
@@ -18,7 +18,7 @@
 		<br><br>
 		Saldo:  <%= conta.getSaldo()%>
 		<br><br>
-		Situacao:  <%= conta.getSituacao()%>
+		Situacao:  <%= conta.getSituacao()==true?"ativada":"desativada"%>
 		<br><br>
 	</div>
 </body>

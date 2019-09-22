@@ -6,6 +6,7 @@ import java.sql.Connection;
 
 import br.com.marcos.projetoweb.conexao.Conexao;
 import br.com.marcos.projetoweb.model.Cliente;
+import br.com.marcos.projetoweb.model.Conta;
 import br.com.marcos.projetoweb.model.Seguro;
 
 public class SeguroDAO {
@@ -86,6 +87,21 @@ public class SeguroDAO {
 			this.stmt.close();
 			return seg;
 		}catch(Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+	public boolean alterarSituacao(Seguro seguro) {
+		String sql ="UPDATE conta SET situacao = ? WHERE numero = ?";
+		
+		try {
+			stmt = this.conexao.prepareStatement(sql);
+			stmt.setInt(1, seguro.getSituacao()==true?1:0);
+			stmt.setInt(2, seguro.getNumero());
+			stmt.execute();
+			stmt.close();
+			return true;
+		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
 	}

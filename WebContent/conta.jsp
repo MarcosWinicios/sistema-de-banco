@@ -21,7 +21,7 @@
 			<a class="a-menu" href="transferir.jsp">Transferir</a>
 		</div>
 		<div class="opt-menu">
-			<a class="a-menu" href="desativar.jsp">Desativar</a>
+			<a class="a-menu" href="situacao.jsp">Situacão</a>
 		</div>
 	</div>
 </body>
