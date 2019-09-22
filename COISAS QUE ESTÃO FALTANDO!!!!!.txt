@@ -1,0 +1,8 @@
+SE ALGUM DE VCS PERCEBEREM QUE FALTA ALGUMA COISA COLOCAR AQUI PRA GENTE SABER O QUE FAZER
+
+1 - Regra de negócio do saque
+2 - Fazer a transferência Funcionar
+3 - Gerar Relatório
+4 - Colocar Botão Home	
+5 - Ter a opão de ativar e desativar(Funcionando)
+6 - Listar Clientes(OPCIONAL)<Se não formos implementar essa parte, temos que tirar a opção de lá>
