@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import br.com.marcos.projetoweb.dao.PessoaJuridicaDAO;
-import br.com.marcos.projetoweb.model.Cliente;
+import br.com.marcos.projetoweb.model.PessoaJuridica;
 
 
 public class AcessarPJ implements Logica {
@@ -20,11 +20,11 @@ public class AcessarPJ implements Logica {
 		String cnpj = req.getParameter("cnpj");
 		PessoaJuridicaDAO pjDAO = new PessoaJuridicaDAO(); 
 		
-		Cliente pj = pjDAO.pesquisarPj(cnpj);
-		
-		session.setAttribute("cliente", pj);
-		
-		return "cliente.jsp";
+		PessoaJuridica pj = pjDAO.pesquisarPj(cnpj);
+		if(pj.getId() != 0) {
+			session.setAttribute("cliente", pj);			
+			return "cliente.jsp";
+		}
+		return "falha.jsp?pagina=manterCliente";
 	}
-
 }

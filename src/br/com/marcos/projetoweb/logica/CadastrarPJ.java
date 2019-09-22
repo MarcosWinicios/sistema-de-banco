@@ -22,9 +22,11 @@ public class CadastrarPJ implements Logica {
 		String nomeFantasia = req.getParameter("nomeFantasia");
 		
 		Cliente pj = new PessoaJuridica(nome, endereco, telefone, cnpj, nomeFantasia);
-		new PessoaJuridicaDAO().inserir(pj);
-		
-		return "index.jsp";
+		if(new PessoaJuridicaDAO().pesquisarPj(cnpj).getId() == 0) {
+			new PessoaJuridicaDAO().inserir(pj);	
+			return "sucesso.jsp?pagina=manterCcliente";
+		}
+		return "falha.jsp?pagina=manterCliente";
 	}
 	
 }

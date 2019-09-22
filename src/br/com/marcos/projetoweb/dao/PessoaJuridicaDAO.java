@@ -37,6 +37,7 @@ public class PessoaJuridicaDAO {
 				pJ.setCnpj(cnpJ);
 				pJ.setNomeFantasia(nomeFantasia);
 				pJ.setIdCliente(id);
+				pJ.setId(rs.getInt("id"));
 			}
 			this.stmt.close();
 			return pJ;

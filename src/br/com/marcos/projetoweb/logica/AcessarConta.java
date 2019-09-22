@@ -27,17 +27,19 @@ public class AcessarConta implements Logica {
 				ContaCorrente contaC = (ContaCorrente)p;
 				if(contaC.getNumero() == numConta) {
 					session.setAttribute("produto", contaC);
+					return "conta.jsp";
 				}
 			}
 			else if(p instanceof ContaPoupanca) {
 				ContaPoupanca contaP = (ContaPoupanca)p;
 				if(contaP.getNumero() == numConta) {
 					session.setAttribute("produto", contaP);
+					return "conta.jsp";
 				}
 			}
 		}
+		return "falha.jsp?pagina=cliente";
 		
-		return "conta.jsp";
 	}
 	
 }

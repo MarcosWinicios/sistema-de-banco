@@ -1,7 +1,6 @@
 package br.com.marcos.projetoweb.logica;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -32,7 +31,6 @@ public class Situacao implements Logica{
 			}
 			else if (opcao.equals("desativar")){
 				conta.setSituacao(false);
-				return "dadosConta.jsp";
 			}
 			cDAO.alterarSituacao(conta);
 		}
@@ -47,7 +45,7 @@ public class Situacao implements Logica{
 			}
 			sDAO.alterarSituacao(seguro);
 		}
-		return "conta.jsp";			
+		return "sucesso.jsp?pagina=conta";			
 
 	}
 

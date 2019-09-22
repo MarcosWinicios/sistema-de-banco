@@ -7,6 +7,14 @@
 	<link rel="stylesheet" href="main.css">
 </head>
 <body>
+	<div class="home">
+		<div class="opt-home">
+			<a class="a-menu" href="index.jsp">Home</a>
+		</div>
+		<div class="opt-home">
+			<a class="a-menu" href="cadastrarCliente.jsp">Voltar</a>
+		</div>
+	</div>
 	<div id="sessao">
 		<form action="sistema?logica=CadastrarPJ" method="post">
 			<h3>Cadastro de Cliente Juridico</h3>

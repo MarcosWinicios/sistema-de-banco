@@ -92,11 +92,26 @@ public class SeguroDAO {
 	}
 	
 	public boolean alterarSituacao(Seguro seguro) {
-		String sql ="UPDATE conta SET situacao = ? WHERE numero = ?";
+		String sql ="UPDATE seguro SET situacao = ? WHERE numero = ?";
 		
 		try {
 			stmt = this.conexao.prepareStatement(sql);
 			stmt.setInt(1, seguro.getSituacao()==true?1:0);
+			stmt.setInt(2, seguro.getNumero());
+			stmt.execute();
+			stmt.close();
+			return true;
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+	public boolean alterarValor(Seguro seguro) {
+		String sql ="UPDATE seguro SET valor = ? WHERE numero = ?";
+		
+		try {
+			stmt = this.conexao.prepareStatement(sql);
+			stmt.setDouble(1, seguro.getValor());
 			stmt.setInt(2, seguro.getNumero());
 			stmt.execute();
 			stmt.close();

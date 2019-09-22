@@ -7,6 +7,14 @@
 	<link rel="stylesheet" href="main.css">
 </head>
 <body>
+	<div class="home">
+		<div class="opt-home">
+			<a class="a-menu" href="index.jsp">Home</a>
+		</div>
+		<div class="opt-home">
+			<a class="a-menu" href="cliente.jsp">Voltar</a>
+		</div>
+	</div>
 	<div id="menu">
 		<div class="opt-menu">
 			<a target="sessao" class="a-menu" href="dadosSeguro.jsp">Ver Dados</a>

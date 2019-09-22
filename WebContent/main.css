@@ -57,3 +57,22 @@ body{
 	height: 50px;
 	display: flex;
 }
+.home{
+	position fixed;
+	border: solid 1px black;
+	width: 20%;
+	height: 50px;
+	display: flex;
+}
+.opt-home{
+	border: solid 1px black;
+	border-left: solid 0px black;
+	position: relative;
+	width: 100%;
+	height: 100%;
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+}

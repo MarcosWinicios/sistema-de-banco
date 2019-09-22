@@ -36,7 +36,7 @@ public class PessoaJuridica extends Cliente {
 		this.setCnpj(cnpj);
 		this.setNomeFantasia(nomeFantasia);
 	}
-	
+
 	public String getCnpj() {
 		return cnpj;
 	}
@@ -57,7 +57,7 @@ public class PessoaJuridica extends Cliente {
 		return id;
 	}
 
-	public void setIdPj(int id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 }

@@ -18,13 +18,18 @@ public class Depositar implements Logica {
 		HttpSession session = req.getSession();
 				
 		Double valorDeposito = (Double.parseDouble(req.getParameter("valor")));
-		Conta conta = (Conta)session.getAttribute("produto");
-		conta.setSaldo(conta.getSaldo() + valorDeposito);
+		if(valorDeposito > 0) {
+			Conta conta = (Conta)session.getAttribute("produto");
+			if(conta.getSituacao()) {
+				conta.setSaldo(conta.getSaldo() + valorDeposito);
+				
+				ContaDAO cDAO = new ContaDAO();
+				cDAO.alterarSaldo(conta);
 		
-		ContaDAO cDAO = new ContaDAO();
-		cDAO.alterarSaldo(conta);
-		
-		return "index.jsp";
+				return "sucesso.jsp?pagina=conta";
+			}
+		}
+		return "falha.jsp?pagina=conta";
 	}
 
 }

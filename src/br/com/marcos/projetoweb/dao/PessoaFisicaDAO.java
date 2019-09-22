@@ -32,15 +32,15 @@ public class PessoaFisicaDAO {
 				String cpF = rs.getString("cpf");
 				String nomeMae = rs.getString("nomeMae");
 				String nomePai = rs.getString("nomePai");
-				int id = rs.getInt("idCliente");
+				int idCliente = rs.getInt("idCliente");
 				
 				ClienteDAO cDAO = new ClienteDAO();
-				pF.setIdCliente(id);
+				pF.setIdCliente(idCliente);
 				pF = (PessoaFisica) cDAO.pesquisarId(pF);
 				pF.setCpf(cpF);
 				pF.setNomeMae(nomeMae);
 				pF.setNomePai(nomePai);
-				pF.setIdCliente(id);
+				pF.setId(rs.getInt("id"));
 			}
 			this.stmt.close();
 			return pF;

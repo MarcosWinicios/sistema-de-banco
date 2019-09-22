@@ -20,15 +20,18 @@ public class Transferir implements Logica{
 		ContaDAO cDAO = new ContaDAO();
 		
 		Double valorTransferir = (Double.parseDouble(req.getParameter("valor")));
-		Conta contaDestinatario = cDAO.pesquisarNumero(Integer.parseInt(req.getParameter("numConta")));
-		Conta contaRemetente = (Conta)session.getAttribute("produto");
-		
-		contaRemetente.setSaldo(contaRemetente.getSaldo() - valorTransferir);
-		contaDestinatario.setSaldo(contaDestinatario.getSaldo() + valorTransferir);
-		
-		cDAO.alterarSaldo(contaRemetente);
-		cDAO.alterarSaldo(contaDestinatario);
-		return "conta.jsp";
+		if(valorTransferir < 0) {
+			Conta contaDestinatario = cDAO.pesquisarNumero(Integer.parseInt(req.getParameter("numConta")));
+			Conta contaRemetente = (Conta)session.getAttribute("produto");
+			if(contaDestinatario.getSituacao() && contaRemetente.getSituacao()) {
+				contaRemetente.setSaldo(contaRemetente.getSaldo() - valorTransferir);
+				contaDestinatario.setSaldo(contaDestinatario.getSaldo() + valorTransferir);
+				
+				cDAO.alterarSaldo(contaRemetente);
+				cDAO.alterarSaldo(contaDestinatario);
+				return "sucesso.jsp?pagina=conta";
+			}
+		}
+		return "falha.jsp?pagina=conta";
 	}
-
 }

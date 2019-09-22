@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import br.com.marcos.projetoweb.dao.ContaDAO;
 import br.com.marcos.projetoweb.dao.SeguroDAO;
 import br.com.marcos.projetoweb.model.Cliente;
 import br.com.marcos.projetoweb.model.Seguro;
@@ -29,9 +30,11 @@ public class CadastrarSeguro implements Logica {
 		seguro.setSituacao(true);
 		seguro.setValor(valor);
 		
-		new SeguroDAO().inserirSeguro(seguro, idCliente);
-		
-		return "index.jsp";
+		if(new ContaDAO().pesquisarNumero(seguro.getNumero()).getId() == 0) {
+			new SeguroDAO().inserirSeguro(seguro, idCliente);
+			return "sucesso.jsp?pagina=cliente";
+		}
+		return "falha.jsp?pagina=cliente";
 	}
 
 }

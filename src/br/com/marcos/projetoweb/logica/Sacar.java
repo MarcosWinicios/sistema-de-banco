@@ -19,17 +19,22 @@ public class Sacar implements Logica{
 		HttpSession session = req.getSession();
 		
 		Double valorSacar = (Double.parseDouble(req.getParameter("valor")));
-		Conta conta = (Conta)session.getAttribute("produto");
-		if(conta instanceof ContaCorrente) {
-			conta.setSaldo(conta.getSaldo() - (valorSacar * 1.01));
+		if(valorSacar < 0) {
+			Conta conta = (Conta)session.getAttribute("produto");
+			if(conta.getSituacao()) {
+				if(conta instanceof ContaCorrente) {
+					conta.setSaldo(conta.getSaldo() - (valorSacar * 1.01));
+				}
+				else {
+					conta.setSaldo(conta.getSaldo() - valorSacar);
+				}
+				ContaDAO cDAO = new ContaDAO();
+				cDAO.alterarSaldo(conta);
+				
+				return "sucesso.jsp?pagina=conta";
+			}
 		}
-		else {
-			conta.setSaldo(conta.getSaldo() - valorSacar);
-		}
-		ContaDAO cDAO = new ContaDAO();
-		cDAO.alterarSaldo(conta);
-		
-		return null;
+		return "falha.jsp?pagina=conta";
 	}
 
 }

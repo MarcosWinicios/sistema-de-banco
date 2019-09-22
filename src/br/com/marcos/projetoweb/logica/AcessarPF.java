@@ -20,8 +20,11 @@ public class AcessarPF implements Logica {
 		String cpf = req.getParameter("cpf");
 		
 		PessoaFisica pf = new PessoaFisicaDAO().pesquisarPf(cpf);
-		session.setAttribute("cliente", pf);
-		return "cliente.jsp";
+		if(pf.getId() != 0) {			
+			session.setAttribute("cliente", pf);
+			return "cliente.jsp";
+		}
+		return "falha.jsp?pagina=manterCliente";
 	}
 
 }

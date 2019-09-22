@@ -8,12 +8,10 @@
 	<link rel="stylesheet" href="main.css">
 </head>
 <body>
-	<div id="sessao">
-		<h2>Falha ao realizar opeção</h2>
-		<div id="menu">
-			<div class="opt-menu">
-				<a target="sessao" class="a-menu" href="<%= request.getParameter("pagina")%>">Retornar</a>
-			</div>
+	<h2>Falha ao realizar opeção</h2>
+	<div id="menu">
+		<div class="opt-menu">
+			<a target="sessao" class="a-menu" href='<%= request.getParameter("pagina")+".jsp"%>'>Retornar</a>
 		</div>
 	</div>
 </body>

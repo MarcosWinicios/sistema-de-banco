@@ -34,9 +34,11 @@ public class CadastrarConta implements Logica {
 		} else {
 			c = new ContaCorrente(numero);
 		}
-	
-		new ContaDAO().cadastrar(c, idCliente);
-		return "index.jsp";
+		if(new ContaDAO().pesquisarNumero(c.getNumero()).getId() == 0) {
+			new ContaDAO().cadastrar(c, idCliente);
+			return "sucesso.jsp?pagina=cliente";
+		}
+		return "falha.jsp?pagina=cliente";
 	}
 
 }
