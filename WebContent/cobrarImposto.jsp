@@ -58,7 +58,7 @@
 						<%
 				}
 				else if(p instanceof Seguro){
-					Conta conta = (Conta)p;
+					Seguro seguro = (Seguro)p;
 						%>
 						<script>
 						document.eventListener('onload',functio(){
@@ -68,8 +68,8 @@
 						    link.setAttributeNode(href);
 						});
 						</script>
-						<p>Numero do seguro: <%= conta.getNumero() %></p>
-						<p>Deseja cobrar imposto deste segurp?</p>
+						<p>Numero do seguro: <%= seguro.getNumero() %></p>
+						<p>Deseja cobrar imposto deste seguro?</p>
 						Sim: <input name="opcao" type="radio" value="cobrar"> Não: <input name="opcao" type="radio" value="cancelar"> 
 						<%
 				}

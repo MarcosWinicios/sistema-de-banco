@@ -22,30 +22,38 @@ public class Situacao implements Logica{
 		String opcao = req.getParameter("opcao");
 
 		Produto produto = (Produto)session.getAttribute("produto");
-
+		if(!opcao.equals("cancelar")) {
+			if(produto instanceof Conta) {
+				ContaDAO cDAO = new ContaDAO();
+				Conta conta = (Conta) produto;
+				if(opcao.equals("ativar")) {
+					conta.setSituacao(true);
+				}
+				else if (opcao.equals("desativar")){
+					conta.setSituacao(false);
+				}
+				cDAO.alterarSituacao(conta);
+				return "sucesso.jsp?pagina=conta";
+			}
+			else if(produto instanceof Seguro) {
+				SeguroDAO sDAO = new SeguroDAO();
+				Seguro seguro = (Seguro) produto;
+				if(opcao.equals("ativar")) {
+					seguro.setSituacao(true);				
+				}
+				else if (opcao.equals("desativar")){
+					seguro.setSituacao(false);	
+				}
+				sDAO.alterarSituacao(seguro);
+				return "sucesso.jsp?pagina=seguro";
+			}
+		}
 		if(produto instanceof Conta) {
-			ContaDAO cDAO = new ContaDAO();
-			Conta conta = (Conta) produto;
-			if(opcao.equals("ativar")) {
-				conta.setSituacao(true);
-			}
-			else if (opcao.equals("desativar")){
-				conta.setSituacao(false);
-			}
-			cDAO.alterarSituacao(conta);
+			return "conta.jsp";
 		}
-		else if(produto instanceof Seguro) {
-			SeguroDAO sDAO = new SeguroDAO();
-			Seguro seguro = (Seguro) produto;
-			if(opcao.equals("ativar")) {
-				seguro.setSituacao(true);				
-			}
-			else if (opcao.equals("desativar")){
-				seguro.setSituacao(false);	
-			}
-			sDAO.alterarSituacao(seguro);
+		else {
+			return "seguro.jsp";
 		}
-		return "sucesso.jsp?pagina=conta";			
 
 	}
 

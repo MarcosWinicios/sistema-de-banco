@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import br.com.marcos.projetoweb.dao.ContaDAO;
 import br.com.marcos.projetoweb.dao.SeguroDAO;
+import br.com.marcos.projetoweb.model.Conta;
 import br.com.marcos.projetoweb.model.ContaCorrente;
 import br.com.marcos.projetoweb.model.ContaPoupanca;
 import br.com.marcos.projetoweb.model.Produto;
@@ -27,24 +28,31 @@ public class CobrarImposto implements Logica{
 			if(produto instanceof ContaCorrente) {
 				ContaDAO cDAO = new ContaDAO();
 				ContaCorrente conta = (ContaCorrente) produto;
-				conta.setSaldo(conta.getSaldo() * 1.05);
+				conta.setSaldo(conta.getSaldo() * 0.95);
 				cDAO.alterarSaldo(conta);
+				return "sucesso.jsp?pagina=conta";
 			}
 			else if(produto instanceof ContaPoupanca) {
 				ContaDAO cDAO = new ContaDAO();
 				ContaPoupanca conta = (ContaPoupanca) produto;
-				conta.setSaldo(conta.getSaldo() * 1.01);
+				conta.setSaldo(conta.getSaldo() * 0.99);
 				cDAO.alterarSaldo(conta);
+				return "sucesso.jsp?pagina=conta";
 			}
 			else if(produto instanceof Seguro) {
 				SeguroDAO sDAO = new SeguroDAO();
 				Seguro seguro = (Seguro) produto;
 				seguro.setValor(seguro.getValor() - (50 + (seguro.getValor() * 0.03)));
 				sDAO.alterarValor(seguro);
+				return "sucesso.jsp?pagina=seguro";
 			}
-			return "sucesso.jsp?pagina=conta";
 		}
-		return "conta.jsp";
+		if(produto instanceof Conta) {
+			return "conta.jsp";
+		}
+		else {
+			return "seguro.jsp";
+		}
 	}
 
 }

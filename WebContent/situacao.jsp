@@ -16,8 +16,7 @@
 		<div class="opt-home">
 			<a class="a-menu" href="index.jsp">Home</a>
 		</div>
-		<div class="opt-home">
-			<a id="retornar" class="a-menu" href="#">Voltar</a>
+		<div id="voltar" class="opt-home">
 		</div>
 	</div>
 	<div id="sessao">
@@ -29,11 +28,15 @@
 					if(conta.getSituacao()){
 					%>
 					<script>
-					document.eventListener('onload',functio(){
-						var link = document.getElementById("retorno");
+					window.addEventListener('load',function(){
+						var link = document.createElement('a');
+						var classe = document.createAttribute('class');
+						classe.value = "a-menu";
 						var href = document.createAttribute('href');
 					    href.value = "conta.jsp";
 					    link.setAttributeNode(href);
+					    link.setAttributeNode(classe);
+					    document.getElementById("voltar").appendChild(link).innerHTML = "Voltar";
 					});
 					</script>
 					<p>Numero da conta: <%= conta.getNumero() %></p>
@@ -44,11 +47,15 @@
 					else{
 						%>
 						<script>
-						document.eventListener('onload',functio(){
-							var link = document.getElementById("retorno");
+						window.addEventListener('load',function(){
+							var link = document.createElement('a');
+							var classe = document.createAttribute('class');
+							classe.value = "a-menu";
 							var href = document.createAttribute('href');
 						    href.value = "conta.jsp";
 						    link.setAttributeNode(href);
+						    link.setAttributeNode(classe);
+						    document.getElementById("voltar").appendChild(link).innerHTML = "Voltar";
 						});
 						</script>
 						<p>Numero da conta: <%= conta.getNumero() %></p>
@@ -62,11 +69,15 @@
 					if(conta.getSituacao()){
 						%>
 						<script>
-						document.eventListener('onload',functio(){
-							var link = document.getElementById("retorno");
+						window.addEventListener('load',function(){
+							var link = document.createElement('a');
+							var classe = document.createAttribute('class');
+							classe.value = "a-menu";
 							var href = document.createAttribute('href');
 						    href.value = "conta.jsp";
 						    link.setAttributeNode(href);
+						    link.setAttributeNode(classe);
+						    document.getElementById("voltar").appendChild(link).innerHTML = "Voltar";
 						});
 						</script>
 						<p>Numero da conta: <%= conta.getNumero() %></p>
@@ -78,11 +89,15 @@
 					else{
 						%>
 						<script>
-						document.eventListener('onload',functio(){
-							var link = document.getElementById("retorno");
+						window.addEventListener('load',function(){
+							var link = document.createElement('a');
+							var classe = document.createAttribute('class');
+							classe.value = "a-menu";
 							var href = document.createAttribute('href');
 						    href.value = "conta.jsp";
 						    link.setAttributeNode(href);
+						    link.setAttributeNode(classe);
+						    document.getElementById("voltar").appendChild(link).innerHTML = "Voltar";
 						});
 						</script>
 						<p>Numero da conta: <%= conta.getNumero() %></p>
@@ -92,33 +107,41 @@
 					}
 				}
 				else if(p instanceof Seguro){
-					Conta conta = (Conta)p;
-					if(conta.getSituacao()){
+					Seguro seguro = (Seguro)p;
+					if(seguro.getSituacao()){
 						%>
 						<script>
-						document.eventListener('onload',functio(){
-							var link = document.getElementById("retorno");
+						window.addEventListener('load',function(){
+							var link = document.createElement('a');
+							var classe = document.createAttribute('class');
+							classe.value = "a-menu";
 							var href = document.createAttribute('href');
 						    href.value = "seguro.jsp";
 						    link.setAttributeNode(href);
+						    link.setAttributeNode(classe);
+						    document.getElementById("voltar").appendChild(link).innerHTML = "Voltar";
 						});
 						</script>
-						<p>Numero do seguro: <%= conta.getNumero() %></p>
-						<p>Deseja desativar este segurp?</p>
+						<p>Numero do seguro: <%= seguro.getNumero() %></p>
+						<p>Deseja desativar este seguro?</p>
 						Sim: <input name="opcao" type="radio" value="desativar"> Não: <input name="opcao" type="radio" value="cancelar"> 
 						<%
 					}
 					else{
 						%>
 						<script>
-						document.eventListener('onload',functio(){
-							var link = document.getElementById("retorno");
+						window.addEventListener('load',function(){
+							var link = document.createElement('a');
+							var classe = document.createAttribute('class');
+							classe.value = "a-menu";
 							var href = document.createAttribute('href');
 						    href.value = "seguro.jsp";
 						    link.setAttributeNode(href);
+						    link.setAttributeNode(classe);
+						    document.getElementById("voltar").appendChild(link).innerHTML = "Voltar";
 						});
 						</script>
-						<p>Numero do seguro: <%= conta.getNumero() %></p>
+						<p>Numero do seguro: <%= seguro.getNumero() %></p>
 						<p>Deseja ativar este seguro?</p>
 						Sim: <input name="opcao" type="radio" value="ativar"> Não: <input name="opcao" type="radio" value="cancelar"> 
 						<%

@@ -19,6 +19,12 @@
 		<div class="opt-menu">
 			<a target="sessao" class="a-menu" href="dadosSeguro.jsp">Ver Dados</a>
 		</div>
+		<div class="opt-menu">
+			<a target="sessao" class="a-menu" href="cobrarImposto.jsp">Cobrar Imposto</a>
+		</div>
+		<div class="opt-menu">
+			<a target="sessao" class="a-menu" href="situacao.jsp">Situação</a>
+		</div>
 	</div>
 </body>
 </html>

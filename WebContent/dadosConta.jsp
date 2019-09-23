@@ -22,7 +22,7 @@
 		%>
 		Numero: <%= conta.getNumero()%>
 		<br><br>
-		Tipo:  <%= conta.getTipo()%>
+		Tipo: R$ <%= conta.getTipo()%>
 		<br><br>
 		Saldo:  <%= conta.getSaldo()%>
 		<br><br>

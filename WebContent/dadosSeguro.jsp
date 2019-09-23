@@ -22,7 +22,7 @@
 		%>
 		Numero: <%= seguro.getNumero()%>
 		<br><br>
-		Valor: <%= seguro.getValor()%>
+		Valor: R$ <%= seguro.getValor()%>
 		<br><br>
 		Situacao:  <%= seguro.getSituacao()==true?"ativada":"desativada"%>
 		<br><br>
