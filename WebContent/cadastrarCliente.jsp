@@ -12,7 +12,7 @@
 			<a class="a-menu" href="index.jsp">Home</a>
 		</div>
 		<div class="opt-home">
-			<a class="a-menu" href="manterCliente.jsp">Voltar</a>
+			<a class="a-menu" href="index.jsp">Voltar</a>
 		</div>
 	</div>
 	<div id="menu">

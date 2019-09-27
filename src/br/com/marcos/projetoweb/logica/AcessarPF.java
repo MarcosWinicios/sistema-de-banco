@@ -24,7 +24,7 @@ public class AcessarPF implements Logica {
 			session.setAttribute("cliente", pf);
 			return "cliente.jsp";
 		}
-		return "falha.jsp?pagina=manterCliente";
+		return "falha.jsp?pagina=index";
 	}
 
 }
