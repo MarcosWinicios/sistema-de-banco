@@ -17,7 +17,7 @@
 			<a class="a-menu" href="index.jsp">Home</a>
 		</div>
 		<div class="opt-home">
-			<a id="retornar" class="a-menu" href="#">Voltar</a>
+			<a id="retornar" class="a-menu" href="cliente.jsp">Voltar</a>
 		</div>
 	</div>
 	<div id="sessao">

@@ -7,7 +7,7 @@ public class Teste {
 	public static void main(String[] args) {
 		System.out.println("Testando...");
 
-		PessoaFisica pf = new PessoaFisica("Fulano", "Rua1", "987654321", "111.222.333-44");
+		/*PessoaFisica pf = new PessoaFisica("Fulano", "Rua1", "987654321", "111.222.333-44");
 		pf.addCCorrente(100);
 		pf.addCPoupanca(200);
 		pf.addSeguro(300, 5200);
@@ -52,6 +52,6 @@ public class Teste {
 				Seguro novoSeguro = (Seguro) prod;
 				prods.add(novoSeguro);
 			}
-		}
+		}*/
 	}
 }

@@ -22,9 +22,9 @@
 		%>
 		Numero: <%= conta.getNumero()%>
 		<br><br>
-		Tipo: R$ <%= conta.getTipo()%>
+		Tipo:  <%= conta.getTipo()%>
 		<br><br>
-		Saldo:  <%= conta.getSaldo()%>
+		Saldo:R$  <%= conta.getSaldo()%>
 		<br><br>
 		Situacao:  <%= conta.getSituacao()==true?"ativada":"desativada"%>
 		<br><br>
