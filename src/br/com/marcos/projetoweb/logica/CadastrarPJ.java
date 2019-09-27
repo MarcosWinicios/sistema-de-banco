@@ -24,9 +24,9 @@ public class CadastrarPJ implements Logica {
 		Cliente pj = new PessoaJuridica(nome, endereco, telefone, cnpj, nomeFantasia);
 		if(new PessoaJuridicaDAO().pesquisarPj(cnpj).getId() == 0) {
 			new PessoaJuridicaDAO().inserir(pj);	
-			return "sucesso.jsp?pagina=manterCcliente";
+			return "sucesso.jsp?pagina=index";
 		}
-		return "falha.jsp?pagina=manterCliente";
+		return "falha.jsp?pagina=index";
 	}
 	
 }

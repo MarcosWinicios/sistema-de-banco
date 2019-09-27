@@ -26,9 +26,9 @@ public class CadastrarPF implements Logica{
 		Cliente pf = new PessoaFisica(nome, endereco, telefone, cpf,nomeMae, nomePai);
 		if(new PessoaFisicaDAO().pesquisarPf(cpf).getId() == 0) {
 			new PessoaFisicaDAO().inserirPf(pf);
-			return "sucesso.jsp?pagina=manterCcliente";
+			return "sucesso.jsp?pagina=index";
 		}
-		return "falha.jsp?pagina=manterCliente";
+		return "falha.jsp?pagina=index";
 	}
 
 }
