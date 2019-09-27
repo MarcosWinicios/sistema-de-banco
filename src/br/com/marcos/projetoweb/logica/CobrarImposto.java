@@ -28,21 +28,21 @@ public class CobrarImposto implements Logica{
 			if(produto instanceof ContaCorrente) {
 				ContaDAO cDAO = new ContaDAO();
 				ContaCorrente conta = (ContaCorrente) produto;
-				conta.setSaldo(conta.getSaldo() * 0.95);
+				conta.setSaldo(conta.getSaldo() - conta.valorImposto());
 				cDAO.alterarSaldo(conta);
 				return "sucesso.jsp?pagina=conta";
 			}
 			else if(produto instanceof ContaPoupanca) {
 				ContaDAO cDAO = new ContaDAO();
 				ContaPoupanca conta = (ContaPoupanca) produto;
-				conta.setSaldo(conta.getSaldo() * 0.99);
+				conta.setSaldo(conta.getSaldo() - conta.valorImposto());
 				cDAO.alterarSaldo(conta);
 				return "sucesso.jsp?pagina=conta";
 			}
 			else if(produto instanceof Seguro) {
 				SeguroDAO sDAO = new SeguroDAO();
 				Seguro seguro = (Seguro) produto;
-				seguro.setValor(seguro.getValor() - (50 + (seguro.getValor() * 0.03)));
+				seguro.setValor(seguro.getValor() - seguro.valorImposto());
 				sDAO.alterarValor(seguro);
 				return "sucesso.jsp?pagina=seguro";
 			}

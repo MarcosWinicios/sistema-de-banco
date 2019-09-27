@@ -29,6 +29,9 @@
 			<a class="a-menu" href="transferir.jsp">Transferir</a>
 		</div>
 		<div class="opt-menu">
+			<a class="a-menu" href="calcularImposto.jsp">Calcular Imposto</a>
+		</div>
+		<div class="opt-menu">
 			<a class="a-menu" href="cobrarImposto.jsp">Cobrar Imposto</a>
 		</div>
 		<div class="opt-menu">
