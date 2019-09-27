@@ -24,7 +24,7 @@
 		</div>
 		<div class="opt-menu">
 			<a target="sessao" class="a-menu" href="situacao.jsp">Situação</a>
-		</div>
+		</div>		
 	</div>
 </body>
 </html>

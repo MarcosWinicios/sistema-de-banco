@@ -25,6 +25,9 @@
 		<div class="opt-menu">
 			<a class="a-menu" href="cadastrarProduto.jsp">Cadastrar Produto</a>
 		</div>
+		<div class="opt-menu">
+			<a class="a-menu" href="Relatorio.jsp">Relatorio</a>
+		</div>
 	</div>
 </body>
 </html>

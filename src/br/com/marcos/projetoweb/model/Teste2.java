@@ -14,6 +14,8 @@ public class Teste2 {
 		contaDestinatario.setSituacao(true);
 		cDAO.alterarSituacao(contaDestinatario);
 		
+		
+		
 		//System.out.println(cDAO.pesquisarNumero(1111).getSaldo());
 	}
 
