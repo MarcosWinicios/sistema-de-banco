@@ -26,7 +26,6 @@ public class CadastrarConta implements Logica {
 		String tipoConta  = req.getParameter("tipoConta");
 		
 		Conta c;
-		int idCliente = cliente.getIdCliente();
 
 		if(tipoConta.equals("poupanca")) {
 			c = new ContaPoupanca();
@@ -34,8 +33,10 @@ public class CadastrarConta implements Logica {
 		} else {
 			c = new ContaCorrente(numero);
 		}
-		if(!new ContaDAO().pesquisarNumero(c.getNumero())) {
-			new ContaDAO().cadastrar(c, idCliente);
+		if(new ContaDAO().pesquisarNumero(c.getNumero()).getId() == 0) {
+			new ContaDAO().cadastrar(c, cliente.getIdCliente());
+			cliente.addProduto(c);
+			session.setAttribute("cliente", cliente);
 			return "sucesso.jsp?pagina=cliente";
 		}
 		return "falha.jsp?pagina=cliente";

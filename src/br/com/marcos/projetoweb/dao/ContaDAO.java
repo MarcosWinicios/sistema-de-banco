@@ -43,20 +43,34 @@ public class ContaDAO {
 		}
 	}
 	
-	public boolean pesquisarNumero(int numero) {
-		String sql = "SELECT *  FROM conta WHERE numero = ?";
+	public Conta pesquisarNumero(int numero) {
+		String sql = "SELECT * FROM conta WHERE numero = ?";
 		
 		try {
 			stmt = this.conexao.prepareStatement(sql);
 			stmt.setInt(1, numero);
 			ResultSet rs = stmt.executeQuery();
+			Conta conta = new ContaPoupanca();
 			if(rs.next()) {
-				return true;
+				if(rs.getInt("idTipoConta") == 2) {
+					conta = new ContaPoupanca();
+					conta.setNumero(rs.getInt("numero"));
+				}
+				else{
+					conta = new ContaCorrente(rs.getInt("numero"));
+				}
+				conta.setId(rs.getInt("id"));
+				conta.setSaldo(rs.getDouble("saldo"));
+				if(rs.getInt("situacao") == 1) {
+					conta.setSituacao(true);
+				}else {
+					conta.setSituacao(false);
+				}
 			}	
+			return conta;
 		}catch(Exception e) {
 			throw new RuntimeException(e);
 		}
-		return false;
 	}
 	
 	public ArrayList<Produto> pesquisarIdCliente(Cliente c) {

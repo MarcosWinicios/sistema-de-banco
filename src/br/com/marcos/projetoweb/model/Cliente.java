@@ -39,17 +39,8 @@ public abstract class Cliente {
 		this.produtos = new ArrayList<Produto>();
 	}
 
-	public void addCCorrente(int numero) {
-		ContaCorrente cc = new ContaCorrente(numero);
-		this.getProdutos().add(cc);
-	}
-
-	public void addCPoupanca(int numero) {
-		this.getProdutos().add(new ContaPoupanca(numero));
-	}
-
-	public void addSeguro(int numero, double valor) {
-		this.getProdutos().add(new Seguro(numero, valor));
+	public void addProduto(Produto produto) {
+		this.getProdutos().add(produto);
 	}
 
 	public List<Produto> getProdutos() {

@@ -17,7 +17,7 @@ public class CadastrarSeguro implements Logica {
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		HttpSession session = req.getSession();
-		Cliente c = (Cliente) session.getAttribute("cliente");
+		Cliente cliente = (Cliente) session.getAttribute("cliente");
 		
 		int numero = Integer.parseInt(req.getParameter("numApolice"));
 		double valor = Double.parseDouble(req.getParameter("valorSeguro"));
@@ -28,7 +28,9 @@ public class CadastrarSeguro implements Logica {
 		seguro.setValor(valor);
 		
 		if(new SeguroDAO().pesquisarNumero(numero).getId() == 0) {
-			new SeguroDAO().inserirSeguro(seguro, c.getIdCliente());
+			new SeguroDAO().inserirSeguro(seguro, cliente.getIdCliente());
+			cliente.addProduto(seguro);
+			session.setAttribute("cliente", cliente);
 			return "sucesso.jsp?pagina=cliente";
 		}
 		return "falha.jsp?pagina=cliente";

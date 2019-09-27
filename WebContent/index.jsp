@@ -12,12 +12,16 @@
 			<a class="a-menu" href="index.jsp">Home</a>
 		</div>
 		<div class="opt-home">
-			<a class="a-menu" href="#">Voltar</a>
+			<a class="a-menu" href="index.jsp">Voltar</a>
 		</div>
 	</div>
 	<div id="menu">
 		<div class="opt-menu">
-			<a class="a-menu" href="manterCliente.jsp">Manter Cliente</a>
+			<a class="a-menu" href="cadastrarCliente.jsp">Cadastrar Cliente</a>
+		</div>
+		<div class="opt-menu">
+			<a class="a-menu" href="acessarCliente.jsp">Acessar Cliente</a>
 		</div>
 	</div>
 </body>
+</html>
