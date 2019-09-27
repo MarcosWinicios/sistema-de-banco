@@ -34,7 +34,7 @@ public class CadastrarConta implements Logica {
 		} else {
 			c = new ContaCorrente(numero);
 		}
-		if(new ContaDAO().pesquisarNumero(c.getNumero()).getId() == 0) {
+		if(!new ContaDAO().pesquisarNumero(c.getNumero())) {
 			new ContaDAO().cadastrar(c, idCliente);
 			return "sucesso.jsp?pagina=cliente";
 		}
