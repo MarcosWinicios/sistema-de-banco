@@ -81,8 +81,8 @@ public class ContaDAO {
 			stmt.setInt(1, c.getIdCliente());
 			ResultSet rs = stmt.executeQuery();
 			ArrayList<Produto> produtos = new ArrayList<Produto>();
-			if(rs.next()) {
-				Conta a;
+			Conta a;
+			while(rs.next()) {
 				if(rs.getInt("idTipoConta") == 1) {
 					a = new ContaCorrente(rs.getInt("numero"));
 					a.setId(rs.getInt("id"));
@@ -96,6 +96,7 @@ public class ContaDAO {
 					produtos.add(a);
 				}else if(rs.getInt("idTipoConta") == 2){
 					a = new ContaPoupanca() ;
+					a.setNumero(rs.getInt("numero"));
 					a.setId(rs.getInt("id"));
 					a.setSaldo(rs.getDouble("saldo"));
 					if(rs.getInt("situacao") == 1) {
